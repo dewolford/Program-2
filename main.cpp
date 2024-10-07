@@ -1,3 +1,0 @@
-/*
-idk what im doing
-*/
