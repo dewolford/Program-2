@@ -18,11 +18,12 @@ class Restaurants
 {
     private:
         string name, location, food;
+        double rating;
 
     public:
         //constructor
         Restaurants(); //default
-        Restaurants(string, string, string); //overloaded
+        Restaurants(string, string, string, double); //overloaded
 
         //deconstructor
         ~Restaurants();
@@ -31,11 +32,13 @@ class Restaurants
         void setName(string);
         void setLocation(string);
         void setFood(string);
+        void setRating(double);
 
         //getters
         string getName();
         string getLocation();
         string getFood();
+        double getRating();
 };
 
 #endif 
