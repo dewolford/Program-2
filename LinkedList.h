@@ -11,7 +11,9 @@
 #include <iostream>
 #include <list>
 
-class LinkedList
+using namespace std;
+
+class ListClass
 {
     private:
         int* headPtr;
@@ -20,11 +22,11 @@ class LinkedList
 
     public:
         //constructors
-        LinkedList();
-        LinkedList(int*, int*, int);
+        ListClass();
+        ListClass(int*, int*, int);
         
         //destructor
-        LinkedList();
+        ListClass();
         
         //setters
         void setHeadPtr(int*);

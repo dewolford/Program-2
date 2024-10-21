@@ -6,24 +6,39 @@
 #include "SmartPointer.h"
 #include "Restaurants.h"
 
-//constructor
+using namespace std;
+
+//constructors
+ListClass()
+{
+    headPtr = 0;
+    tailPtr = 0;
+    size = 0;
+}
+
+ListClass(int* h, int* t, int s)
+{
+    headPtr = h;
+    tailPtr = t;
+    size = s;
+}
 
 //destructor
 
 //setters
 void setHeadPtr(int* h)
 {
-    
+    headPtr = h;
 }
 
 void setTailPtr(int* t)
 {
-
+    tailPtr = t;
 }
 
 void setSize(int s)
 {
-
+    size = s;
 }
 
 
