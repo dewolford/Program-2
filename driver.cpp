@@ -1,11 +1,11 @@
 /*
     Title: driver.cpp
-    Purpose: hold the main function
+    Purpose: Runs the main menu case statement
 */
-#include "LinkedList.h"     //
-#include "SmartPointer.h"   //
-#include "Restaurants.h"    //
-#include "functions.cpp"    //
+#include "LinkedList.h"     //includes linked list functions
+#include "SmartPointer.h"   //includes smart pointer functions
+#include "Restaurants.h"    //includes restaurant functions
+#include "functions.cpp"    //includes various other helper functions
 
 using namespace std;
 
@@ -48,7 +48,7 @@ int main(){
                 break;
             case 5: 
                 //Compare restaurants case
-                
+
                 /*call restaurant < or > or = idk yet ill figure it out -Gabe*/
                 break;
             default:
