@@ -64,6 +64,7 @@ int getSize()
 }
 
 //add to list (append, prepend, insert)
+<<<<<<< HEAD
 void insertAtFront(Node temp)
 {
     temp.next = getHeadPtr();
@@ -75,6 +76,10 @@ void insertAtBack(Node temp)
     temp.prev = getTailPtr();
     setTailPtr(&temp.data);
 }
+=======
+    /*please add the following line of code to the end of the function*/
+    cout << "\nSuccessfully added to restaurant list!\n";
+>>>>>>> 9987b9935cd520e59aab5380745dee8ca1e7ea80
 
 //get from list (back, front, at)
 int front()
@@ -93,6 +98,7 @@ int at(int)
 }
 
 //remove from list (pop, remove, etc)
+<<<<<<< HEAD
 void pop()
 {
     
@@ -120,3 +126,18 @@ void printList()
 {
 
 }
+=======
+    /*please add the following line of code to the end of the function*/
+    cout << "\nSuccessfully removed from restaurant list!\n";
+
+//sorting function
+    /*please add the following line of code to the end of the function*/
+    cout << "\nSuccessfully sorted restaurant list!\n";
+
+//stream opperator (<<)
+
+//compare function 
+    /*this one should be simple. all it does is take two objects as arguments, takes the 
+    ratings, and prints "this restaraunt (rating) is rated higher than that restaurant 
+    (rating)" or "this restaraunt and that restaraunt are rated equally (rating)"*/
+>>>>>>> 9987b9935cd520e59aab5380745dee8ca1e7ea80
