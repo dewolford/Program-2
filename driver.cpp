@@ -43,13 +43,13 @@ int main(){
             case 2: 
                 //delete a restaurant case
 
-                /*call destructor for restraunt?*/
+                /*call destructor for restaurant?*/
                 /*call remove list function?*/
 
                 break;
             case 3: 
                 //display a restaurant case
-                cout << "\nDisplay one restaraunt(1) or all restaraunts(other number)?";
+                cout << "\nDisplay one restaurant(1) or all restaurants(other number)?";
                 validateInput(choice2);
                 if (choice2 == 1){
                     /*call << Restaurant function*/
@@ -66,7 +66,7 @@ int main(){
             case 5: 
                 //Compare restaurants case
                 /*asks for both restaurant names*/
-                /*call compare restaraunt function with two restaraunts as arguments*/
+                /*call compare restaurant function with two restaurants as arguments*/
                 break;
             default:
                 //this case quits if any number besides 1-5 are entered
