@@ -9,14 +9,14 @@
 using namespace std;
 
 //constructors
-ListClass()
+LinkedList()
 {
-    headPtr = 0;
-    tailPtr = 0;
+    headPtr = NULL;
+    tailPtr = NULL;
     size = 0;
 }
 
-ListClass(int* h, int* t, int s)
+LinkedList(Node* h, Node* t, int s)
 {
     headPtr = h;
     tailPtr = t;
@@ -24,14 +24,18 @@ ListClass(int* h, int* t, int s)
 }
 
 //destructor
+LinkedList()
+{
+
+}
 
 //setters
-void setHeadPtr(int* h)
+void setHeadPtr(Node* h)
 {
     headPtr = h;
 }
 
-void setTailPtr(int* t)
+void setTailPtr(Node* t)
 {
     tailPtr = t;
 }
@@ -44,12 +48,12 @@ void setSize(int s)
 
 
 //getters
-int* getHeadPtr()
+Node* getHeadPtr()
 {
     return headPtr;
 }
 
-int* getTailPtr()
+Node* getTailPtr()
 {
     return tailPtr;
 }
@@ -60,11 +64,59 @@ int getSize()
 }
 
 //add to list (append, prepend, insert)
+void insertAtFront(Node temp)
+{
+    temp.next = getHeadPtr();
+    setHeadPtr(&temp.data);
+}
+
+void insertAtBack(Node temp)
+{
+    temp.prev = getTailPtr();
+    setTailPtr(&temp.data);
+}
 
 //get from list (back, front, at)
+int front()
+{
+    
+}
+
+int back()
+{
+
+}
+
+int at(int)
+{
+
+}
 
 //remove from list (pop, remove, etc)
+void pop()
+{
+    
+}
+
+void removeFrom(int)
+{
+
+}
 
 //sorting function
+void sort()
+{
+
+}
 
 //stream opperator (<<)
+void streamOperator()
+{
+
+}
+
+//print function
+void printList()
+{
+
+}

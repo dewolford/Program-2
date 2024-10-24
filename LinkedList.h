@@ -13,41 +13,74 @@
 
 using namespace std;
 
-class ListClass
+struct Node
+{
+    int data;
+    Node* next;
+    Node* prev;
+
+    Node()
+    {
+        data = 0;
+        prev = next = nullptr;
+    }
+
+    Node(int d)
+    {
+        data = d;
+        prev = next = nullptr;
+    }
+};
+
+class LinkedList
 {
     private:
-        int* headPtr;
-        int* tailPtr;
+        Node* headPtr;
+        Node* tailPtr;
         int size;
 
     public:
         //constructors
-        ListClass();
-        ListClass(int*, int*, int);
+        LinkedList();
+        LinkedList(Node*, Node*, int);
         
         //destructor
-        ListClass();
+        LinkedList();
         
         //setters
-        void setHeadPtr(int*);
-        void setTailPtr(int*);
+        void setHeadPtr(Node*);
+        void setTailPtr(Node*);
         void setSize(int);
 
         //getters
-        int* getHeadPtr();
-        int* getTailPtr();
+        Node* getHeadPtr();
+        Node* getTailPtr();
         int getSize();
         
+
+
+
         //add to list (append, prepend, insert)
+        void insertAtFront(Node);
+        void insertAtBack(Node);
         
         //get from list (back, front, at)
+        int front();
+        int back();
+        int at(int);
         
         //remove from list (pop, remove, etc)
+        void pop();
+        void removeFrom(int);
         
         //sorting function
+        void sort();
         
         //stream opperator (<<)
+        void streamOperator();
 
+        //print function
+        void printList();
 };
 
 #endif
