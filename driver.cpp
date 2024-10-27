@@ -1,5 +1,8 @@
 /*
     Title: driver.cpp
+
+    / * DANI can you add a link to the repository here? thanks* /
+
     Purpose: Runs the main menu case statement
 */
 #include "LinkedList.h"     //includes linked list functions
@@ -18,21 +21,22 @@ int main(){
     
     do {
         //prints the main menu
-        printMenu();                /*why is this erroring? can someone fix if its still here? thanks -Gabe*/
+        printMenu();
+
         //takes and validates input 
-        validateInput(choice);      //this is borrowed from project 1
+        validateInput(choice);
 
         switch(choice){
 
             case 1:
                 // add a restaurant case
-                Cout << "\n\nWhat is your restaurant name?";
+                cout << "\n\nWhat is your restaurant name?";
                 getline(/*string holder*/);
-                Cout << "\n\nWhat is your restaurant location?";
+                cout << "\n\nWhat is your restaurant location?";
                 getline(/*string holder*/);
-                Cout << "\n\nWhat is your restaurant rating?";
+                cout << "\n\nWhat is your restaurant rating?";
                 cin >> /*double holder*/;
-                Cout << "\n\nWhat is your restaurant's type of food?";
+                cout << "\n\nWhat is your restaurant's type of food?";
                 getline(/*string holder*/);
                 /*call constrctor for restaurant?*/
 
@@ -78,4 +82,4 @@ int main(){
 
     return 0;//end of code
 
-}/* its giving me an error here but i think its trippin, if not, my Bad-Gabe*/
+}

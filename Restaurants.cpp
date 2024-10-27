@@ -9,45 +9,56 @@
 using namespace std;
 
 //default constructor
-Restaurants(){
-    name = 
+Restaurants::Restaurants(){
+    name = "Restaurant Name";
+    location = "Cookeville";
+    food = "Good Food!";
+    rating = 2.5;
+
     
 } 
 
 //overloaded constructor
-Restaurants(string, string, string, double){
-
+Restaurants::Restaurants(string name, string location, string food, double rating){
+    this->name = name;
+    this->location = location;
+    this->food = food;
+    this->rating = rating;
 } 
 
 //destructor
-~Restaurants(){
-
-}
+/*
+Restaurants::~Restaurants(){
+    delete name;
+    delete location;                        /*Does this destructor need to exist? -Gabe* /
+    delete food;
+    delete rating;
+}*/
 
 //setters
-setName(string newName){
+void Restaurants::setName(string newName){
     name = newName;
 }
-setLocation(string newLocation){
-    location = newLocation
+void Restaurants::setLocation(string newLocation){
+    location = newLocation;
 }
-setFood(string newFood){
+void Restaurants::setFood(string newFood){
     food = newFood;
 }
-setRating(double newRating){
-    rating = newRating
+void Restaurants::setRating(double newRating){
+    rating = newRating;
 }
 
 //getters
-getName(){
+string Restaurants::getName(){
     return name;
 }
-getLocation(){
+string Restaurants::getLocation(){
     return location;
 }
-getFood(){
-    reuturn food;
+string Restaurants::getFood(){
+    return food;
 }
-getRating(){
+double Restaurants::getRating(){
     return rating;
 }

@@ -13,28 +13,27 @@
 
 using namespace std;
 
-struct Node
-{
-    int data;
-    Node* next;
-    Node* prev;
 
-    Node()
-    {
-        data = 0;
-        prev = next = nullptr;
-    }
-
-    Node(int d)
-    {
-        data = d;
-        prev = next = nullptr;
-    }
-};
 
 class LinkedList
 {
     private:
+        struct Node {
+            int data;
+            Node* next;
+            Node* prev;
+
+            Node() {
+                data = 0;
+                prev = next = nullptr;
+            }
+
+            Node(int d) {
+                data = d;
+                prev = next = nullptr;
+            }
+        };
+        
         Node* headPtr;
         Node* tailPtr;
         int size;
