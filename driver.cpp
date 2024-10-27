@@ -8,7 +8,7 @@
 #include "LinkedList.h"     //includes linked list functions
 #include "SmartPointer.h"   //includes smart pointer functions
 #include "Restaurants.h"    //includes restaurant functions
-#include "functions.cpp"    //includes various other helper functions
+#include "functions.h"    //includes various other helper functions
 
 using namespace std;
 
@@ -26,8 +26,7 @@ int main(){
         printMenu();
 
         //takes and validates input 
-        validateInput(choice);
-
+        choice = (int)validateInput(choice, 1, 6);
         switch(choice){
 
             case 1:
@@ -35,13 +34,14 @@ int main(){
 
                 //reads in new restaurant information
                 cout << "\n\nWhat is your restaurant name?";
+                cin.ignore(10000, '\n'); //clears buffer before name is typed
                 getline(cin, nameHolder);
                 cout << "\n\nWhat is your restaurant location?";
                 getline(cin, locationHolder);
                 cout << "\n\nWhat is your restaurant's type of food?";
                 getline(cin, typeHolder);
                 cout << "\n\nWhat is your restaurant rating?";
-                validateInput(ratingHolder);
+                validateInput(ratingHolder, 0, 5);
                 
                 Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);/*idk if this is right please double check*/
                 /*call append list funtion? with constructed restaurant*/    
@@ -56,8 +56,8 @@ int main(){
                 break;
             case 3: 
                 //display a restaurant case
-                cout << "\nDisplay one restaurant(1) or all restaurants(other number)?";
-                validateInput(choice2);
+                cout << "\nDisplay one restaurant(1) or all restaurants(2)?";
+                validateInput(choice2, 1, 2);
                 if (choice2 == 1){
                     /*call << Restaurant function*/
                 } else {

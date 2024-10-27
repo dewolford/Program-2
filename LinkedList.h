@@ -8,6 +8,7 @@
 
 #include "SmartPointer.h"
 #include "Restaurants.h"
+#include "functions.h"
 #include <iostream>
 #include <list>
 

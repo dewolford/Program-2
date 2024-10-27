@@ -5,6 +5,7 @@
 #include "LinkedList.h"
 #include "SmartPointer.h"
 #include "Restaurants.h"
+#include "functions.h"
 
 using namespace std;
 
@@ -30,7 +31,7 @@ Restaurants::Restaurants(string name, string location, string food, double ratin
 /*
 Restaurants::~Restaurants(){
     delete name;
-    delete location;                        /*Does this destructor need to exist? -Gabe* /
+    delete location;                        / *Does this destructor need to exist? -Gabe* /
     delete food;
     delete rating;
 }*/

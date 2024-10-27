@@ -5,6 +5,7 @@
 #include "LinkedList.h"
 #include "SmartPointer.h"
 #include "Restaurants.h"
+#include "functions.h"
 
 using namespace std;
 
