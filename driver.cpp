@@ -19,6 +19,10 @@ int main(){
     bool cont = true; //used in the do while loop to determine if they quit or not
     string nameHolder, locationHolder, typeHolder;  //holds other restaurant information for constructor
     double ratingHolder;                            //holds restaurant rating for constructor
+    SmartPtr<double> ptr(new double());
+    *ptr = ratingHolder;
+    SmartPtr<string> ptr(new string());
+    *ptr = nameHolder;
 
     
     do {
