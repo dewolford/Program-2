@@ -10,19 +10,19 @@
 #include "LinkedList.h"
 #include <memory>
 
-template <class SP> class SmartPointer{
-    SP* ptr;
+template <class T> class SmartPtr{
+    T* ptr;
     public:
-        explicit SmartPtr(SP* p = NULL) { ptr = p; }
+        explicit SmartPtr(T* p = NULL) { ptr = p; }
     
     //destructor
     ~SmartPtr() { delete (ptr); }
 
     //overloaded operator
-    SP& operator*() { return *ptr; }
+    T& operator*() { return *ptr; }
 
     //overload with arrow so class members can be accessed like a pointer
-    SP* operator->() { return ptr; }
+    T* operator->() { return ptr; }
 
 };
 
