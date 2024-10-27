@@ -1,7 +1,7 @@
 /*
     Title: driver.cpp
 
-    / * DANI can you add a link to the repository here? thanks* /
+                                                    / * DANI can you add a link to the repository here? thanks* /
 
     Purpose: Runs the main menu case statement
 */
@@ -17,6 +17,8 @@ int main(){
     int choice; //contains the users choice for the menu
     int choice2;//contains the users choice for inside the menu
     bool cont = true; //used in the do while loop to determine if they quit or not
+    string nameHolder, locationHolder, typeHolder;  //holds other restaurant information for constructor
+    double ratingHolder;                            //holds restaurant rating for constructor
 
     
     do {
@@ -30,24 +32,25 @@ int main(){
 
             case 1:
                 // add a restaurant case
+
+                //reads in new restaurant information
                 cout << "\n\nWhat is your restaurant name?";
-                getline(/*string holder*/);
+                getline(cin, nameHolder);
                 cout << "\n\nWhat is your restaurant location?";
-                getline(/*string holder*/);
-                cout << "\n\nWhat is your restaurant rating?";
-                cin >> /*double holder*/;
+                getline(cin, locationHolder);
                 cout << "\n\nWhat is your restaurant's type of food?";
-                getline(/*string holder*/);
-                /*call constrctor for restaurant?*/
-
-
-                /*call append list funtion?*/
+                getline(cin, typeHolder);
+                cout << "\n\nWhat is your restaurant rating?";
+                validateInput(ratingHolder);
+                
+                Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);/*idk if this is right please double check*/
+                /*call append list funtion? with constructed restaurant*/    
 
                 break;
             case 2: 
                 //delete a restaurant case
 
-                /*call destructor for restaurant?*/
+                /*call destructor for restaurant?*/                 /*idk if this is right please double check*/
                 /*call remove list function?*/
 
                 break;
@@ -69,11 +72,14 @@ int main(){
                 break;
             case 5: 
                 //Compare restaurants case
+
                 /*asks for both restaurant names*/
                 /*call compare restaurant function with two restaurants as arguments*/
                 break;
             default:
                 //this case quits if any number besides 1-5 are entered
+                //quit case
+
                 cout << "\n\nYou have successfully quit! Thanks for visiting!";
                 cont = false;
                 break;

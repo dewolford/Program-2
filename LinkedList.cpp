@@ -127,7 +127,7 @@ void printList()
 
 }
 
-//compare function 
+//compare function
     /*this one should be simple. all it does is take two objects as arguments, takes the 
-    ratings, and prints "this restaraunt (rating) is rated higher than that restaurant 
-    (rating)" or "this restaraunt and that restaraunt are rated equally (rating)"*/
+    ratings, and prints "this restaurant (rating) is rated higher than that restaurant 
+    (rating)" or "this restaurant and that restaurant are rated equally (rating)"*/
