@@ -8,5 +8,22 @@
 
 #include "Restaurants.h"
 #include "LinkedList.h"
+#include <memory>
+
+template <class SP> class SmartPointer{
+    SP* ptr;
+    public:
+        explicit SmartPtr(SP* p = NULL) { ptr = p; }
+    
+    //destructor
+    ~SmartPtr() { delete (ptr); }
+
+    //overloaded operator
+    SP& operator*() { return *ptr; }
+
+    //overload with arrow so class members can be accessed like a pointer
+    SP* operator->() { return ptr; }
+
+};
 
 #endif
