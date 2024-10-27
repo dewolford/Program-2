@@ -19,7 +19,8 @@ using namespace std;
 class LinkedList
 {
     private:
-        struct Node {
+        struct Node 
+        {
             int data;
             Node* next;
             Node* prev;
@@ -45,7 +46,7 @@ class LinkedList
         LinkedList(Node*, Node*, int);
         
         //destructor
-        LinkedList();
+        ~LinkedList();
         
         //setters
         void setHeadPtr(Node*);
@@ -70,8 +71,8 @@ class LinkedList
         int at(int);
         
         //remove from list (pop, remove, etc)
-        void pop();
-        void removeFrom(int);
+        Node* pop();
+        Node* removeFrom(int);
         
         //sorting function
         void sort();
