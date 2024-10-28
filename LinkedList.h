@@ -29,11 +29,20 @@ class LinkedList
             Node() {
                 data = 0;
                 prev = next = nullptr;
+                resty.setFood(" ");
+                resty.setLocation(" ");
+                resty.setName(" ");
+                resty.setRating(0);
+
             }
 
             Node(int d) {
                 data = d;
                 prev = next = nullptr;
+                resty.setFood(" ");
+                resty.setLocation(" ");
+                resty.setName(" ");
+                resty.setRating(0);
             }
         };
         

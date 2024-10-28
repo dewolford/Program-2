@@ -117,13 +117,13 @@ void LinkedList::insertAtBack(LinkedList temp)
 int LinkedList::front()
 {
     LinkedList temp;
-    return temp.getHeadPtr()->data;
+    return temp.getHeadPtr()->resty.getRating();
 }
 
 int LinkedList::back()
 {
     LinkedList temp;
-    return temp.getTailPtr()->data;
+    return temp.getTailPtr()->resty.getRating();
 }
 
 int LinkedList::at(int num)
@@ -138,7 +138,7 @@ int LinkedList::at(int num)
         temp2 = temp->next;
     }
 
-    return temp->data;
+    return temp->resty.getRating();
 }
 
 //remove from list (pop, remove, etc)
