@@ -18,13 +18,15 @@ LinkedList::LinkedList()
     headPtr = NULL;
     tailPtr = NULL;
     size = 0;
+    Restaurants();
 }
 
-LinkedList::LinkedList(Node* h, Node* t, int s)
+LinkedList::LinkedList(Node* h, Node* t, int s, Restaurants r)
 {
     headPtr = h;
     tailPtr = t;
     size = s;
+    res = r;
 }
 
 //destructor
@@ -272,16 +274,33 @@ void LinkedList::printList()
 void LinkedList::compare(){
     string name1;   //stores name of first restaurant
     string name2;   //stores name of second restaurant
+    LinkedList tempList;
+    Node* currentNode = headPtr;
+    Node* res1;     //pointer to the first restaurant in the linked list
+    Node* res2;     //pointer to the second restaurant in the linked list
+    int num;        //num used for user input
+    bool tryAgain = true;
     bool correct = true;
 
-    do (correct){
+    do{
 
     cout << "\nWhat is the name of the first restaurant?\n";
     getline(cin, name1);
+    for (int i = 0;i< ){
+
+        if (name1 == tempList.getRes().getName()){
+            
+        }
+    }
 
     
-    } wh
-    } while 
+    currentNode = tempList.headPtr->next;
+    
+    num = validateInput(num, 1,2);
+
+    
+    } while  (!correct);
+
 
 
 

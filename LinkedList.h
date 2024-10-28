@@ -44,7 +44,7 @@ class LinkedList
     public:
         //constructors
         LinkedList();
-        LinkedList(Node*, Node*, int);
+        LinkedList(Node*, Node*, int, Restaurants);
         
         //destructor
         ~LinkedList();
