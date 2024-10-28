@@ -27,7 +27,7 @@ class Restaurants
         Restaurants(string, string, string, double); //overloaded
 
         //deconstructor
-        //~Restaurants();                           /*Does this destructor need to exist? -Gabe* /
+        ~Restaurants();
 
         //setters
         void setName(string);

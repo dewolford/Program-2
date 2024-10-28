@@ -28,13 +28,9 @@ Restaurants::Restaurants(string name, string location, string food, double ratin
 } 
 
 //destructor
-/*
 Restaurants::~Restaurants(){
-    delete name;
-    delete location;                        / *Does this destructor need to exist? -Gabe* /
-    delete food;
-    delete rating;
-}*/
+    
+}
 
 //setters
 void Restaurants::setName(string newName){

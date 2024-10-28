@@ -39,6 +39,7 @@ class LinkedList
         Node* headPtr;
         Node* tailPtr;
         int size;
+        Restaurants res;
 
     public:
         //constructors
@@ -52,18 +53,20 @@ class LinkedList
         void setHeadPtr(Node*);
         void setTailPtr(Node*);
         void setSize(int);
+        void setRes(Restaurants);
 
         //getters
         Node* getHeadPtr();
         Node* getTailPtr();
         int getSize();
+        Restaurants getRes();
         
 
 
 
         //add to list (append, prepend, insert)
-        void insertAtFront(Node);
-        void insertAtBack(Node);
+        void insertAtFront(LinkedList);
+        void insertAtBack(LinkedList);
         
         //get from list (back, front, at)
         int front();
@@ -75,13 +78,13 @@ class LinkedList
         Node* removeFrom(int);
         
         //sorting function
-        void sort();
-        
-        //stream opperator (<<)
-        void streamOperator();
+        void sort(LinkedList, int, int);
 
         //print function
         void printList();
+
+        //compare function
+        void compare();
 };
 
 #endif

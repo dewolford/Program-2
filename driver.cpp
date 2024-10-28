@@ -9,12 +9,12 @@
 #include "SmartPointer.h"   //includes smart pointer functions
 #include "Restaurants.h"    //includes restaurant functions
 #include "functions.h"    //includes various other helper functions
-#include  <string>
+#include <string>
 
 using namespace std;
 
 int main(){
-
+    LinkedList linkLst;
     int choice; //contains the users choice for the menu
     int choice2;//contains the users choice for inside the menu
     bool cont = true; //used in the do while loop to determine if they quit or not
@@ -25,7 +25,7 @@ int main(){
     *ptr = PHH;
     double P = stod(PHH);
     list<SmartPtr<Restaurants>> restyList;
-
+    auto itorator = restyList.begin();
     do {
         //prints the main menu
         printMenu();
@@ -51,7 +51,7 @@ int main(){
                 restyList.push_back(SmartPtr<Restaurants>(new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder)));
                 Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);/*idk if this is right please double check*/
                 /*call append list funtion? with constructed restaurant*/    
-
+                linkLst.insertAtBack(restyList.get(itorator));
                 break;
             case 2: 
                 //delete a restaurant case
@@ -84,7 +84,6 @@ int main(){
             case 5: 
                 //Compare restaurants case
 
-                /*asks for both restaurant names*/
                 /*call compare restaurant function with two restaurants as arguments*/
                 break;
             default:

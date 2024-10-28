@@ -9,15 +9,18 @@
 
 using namespace std;
 
+void Merge(LinkedList, int, int, int);
+
+
 //constructors
-LinkedList()
+LinkedList::LinkedList()
 {
     headPtr = NULL;
     tailPtr = NULL;
-    int size = 0;
+    size = 0;
 }
 
-LinkedList(Node* h, Node* t, int s)
+LinkedList::LinkedList(Node* h, Node* t, int s)
 {
     headPtr = h;
     tailPtr = t;
@@ -25,13 +28,13 @@ LinkedList(Node* h, Node* t, int s)
 }
 
 //destructor
-~LinkedList()
+LinkedList::~LinkedList()
 {
-    Node *nodePtr;   // To traverse the list
-	Node *nextNode;  // To point to the next node
+    Node* nodePtr;   // To traverse the list
+	Node* nextNode;  // To point to the next node
 
 	// Position nodePtr at the head of the list.
-	nodePtr = head;
+	nodePtr = headPtr;
 
 	// While nodePtr is not at the end of the list...
 	while (nodePtr != NULL)
@@ -48,109 +51,125 @@ LinkedList(Node* h, Node* t, int s)
 }
 
 //setters
-void setHeadPtr(Node* h)
+void LinkedList::setHeadPtr(Node* h)
 {
     headPtr = h;
 }
 
-void setTailPtr(Node* t)
+void LinkedList::setTailPtr(Node* t)
 {
     tailPtr = t;
 }
 
-void setSize(int s)
+void LinkedList::setSize(int s)
 {
     size = s;
 }
 
-
+void LinkedList::setRes(Restaurants r)
+{
+    res = r;
+}
 
 //getters
-Node* getHeadPtr()
+LinkedList::Node* LinkedList::getHeadPtr()
 {
     return headPtr;
 }
 
-Node* getTailPtr()
+LinkedList::Node* LinkedList::getTailPtr()
 {
     return tailPtr;
 }
 
-int getSize()
+int LinkedList::getSize()
 {
     return size;
 }
 
-//add to list (append, prepend, insert)
-void insertAtFront(Node temp)
+Restaurants LinkedList::getRes()
 {
-    temp.next = getHeadPtr();
-    setHeadPtr(&temp.data);
+    return res;
+}
+
+
+
+
+
+//add to list (append, prepend, insert)
+void LinkedList::insertAtFront(LinkedList temp)
+{
+    Node* newData = temp.getHeadPtr();
+    temp.setHeadPtr(newData);
     
     cout << "\nSuccessfully added to restaurant list!\n";
 }
 
-void insertAtBack(Node temp)
+void LinkedList::insertAtBack(LinkedList temp)
 {
-    temp.prev = getTailPtr();
-    setTailPtr(&temp.data);
-    
+    Node* newData = temp.getTailPtr();
+    temp.setTailPtr(newData);
+
     cout << "\nSuccessfully added to restaurant list!\n";
 }
 
 //get from list (back, front, at)
-int front()
+int LinkedList::front()
 {
-    Node temp;
-    temp.data = &getHeadPtr();
-    return temp.data;
+    LinkedList temp;
+    return temp.getHeadPtr()->data;
 }
 
-int back()
+int LinkedList::back()
 {
-    Node temp;
-    temp.data = &getTailPtr();
-    return temp.data;
+    LinkedList temp;
+    return temp.getTailPtr()->data;
 }
 
-int at(int num)
+int LinkedList::at(int num)
 {
-    Node* temp = headPtr;
+    LinkedList okay;
+    Node* temp = okay.headPtr;
+    Node* temp2;
 
     for(int x = 1; 1 <= num; x++)
     {
-        temp = temp.next;
+        temp = okay.headPtr->next;
+        temp2 = temp->next;
     }
 
-    return temp.data;
+    return temp->data;
 }
 
 //remove from list (pop, remove, etc)
-Node* pop()
+LinkedList::Node* LinkedList::pop()
 {
-    if (headPtr == nullptr)
+    LinkedList okay;
+
+    if (okay.headPtr == nullptr)
     {
         return nullptr;
     }
-    if (headPtr.next == nullptr)
+    if (okay.headPtr->next == nullptr)
     {
         delete headPtr;
         return nullptr;
     }
 
-    Node* temp;
-    temp = headPtr;
-    while(temp.next != nullptr)
+    LinkedList temp;
+    Node* curr, *nextVariable;
+    while(temp.headPtr != nullptr)
     {
-        curr = curr.next;
+        curr = temp.headPtr->next;
+        nextVariable = curr->next;
     }
 
-    if(curr.prev != nullptr)
+    if(curr->prev != nullptr)
     {
-        curr.prev.next = nullptr;
+        curr = nullptr;
     }
 
-    delete temp;
+    delete curr;
 
     int sizeTemp;
     sizeTemp = getSize();
@@ -160,7 +179,7 @@ Node* pop()
     return headPtr;
 }
 
-Node* removeFrom(int pos)
+LinkedList::Node* LinkedList::removeFrom(int pos)
 {
     if (headPtr == nullptr)
     {
@@ -168,78 +187,107 @@ Node* removeFrom(int pos)
         return headPtr;
     }
 
-    Node* curr = headPtr;
+    LinkedList curr;
+    Node* temp1, *temp2;
 
-    for(int x = 1; (curr != nullptr) && (i < pos); x++)
+    for(int x = 1; (curr.headPtr != nullptr) && (x < pos); x++)
     {
-        curr = curr.next;
+        temp1 = curr.headPtr->next;
+        temp2 = temp1->next;
     }
 
-    if(curr == nullptr)
+    if(temp2 == nullptr)
     {
         return headPtr;
     }
 
-    if(curr.prev != nullptr)
+    if(temp2->prev != nullptr)
     {
-        curr.prev.next = curr.next;
+        temp2 = temp2->next;
     }
 
-    if(curr.next != nullptr)
+    if(temp2->next != nullptr)
     {
-        curr.next.prev = curr.prev;
+        temp2 = temp2->prev;
     }
 
-    if(headPtr == curr)
+    if(headPtr == temp2)
     {
-        headPtr = curr.next;
+        headPtr = temp2->next;
     }
 
-    delete curr;
+    delete temp2;
     cout << "\nSuccessfully removed from restaurant list!\n";
     return headPtr;
 }
 
 //sorting function
-void sort()
+void LinkedList::sort(LinkedList temp, int beg, int end)
 {
-    Node* temp;
+    Node* okay = temp.headPtr;
 
-    cout << "\nSorting the array with the Bubble Sort algorithm.\n\n";
+    cout << "\nSorting the array with the Merge Sort algorithm.\n\n";
 
-    for(int x=(size-1); x > 0; x--)
+    int mid;
+
+    if (beg < end)
     {
-        for(int i = 0; i < x; i++)
-        {
-            if(temp.data > temp.next.data)
-            {
-                temp = temp.next;
-            }
-        }
+        mid = (beg + end) / 2; //find mid point
+        
+        sort(temp, beg, mid); //recursively sort left partition
+        sort(temp, mid, end); //recursively sort right partition
+
+        //merge partitions in sorted order
+        Merge(temp, beg, mid, end);
     }
 
     cout << "\nSuccessfully sorted restaurant list!\n";
 }
 
-//stream opperator (<<)
-void streamOperator()
+//merge sorting function results
+void Merge(LinkedList temp, int beg, int mid, int end)
 {
-
+    int mergedSize = end - beg + 1;
+    int mergePos = 0;
+    int left = 0;
+    int right = 0;
+    
 }
 
 //print function
-void printList()
+void LinkedList::printList()
 {
-    Node* curr = headPtr;
+    LinkedList temp;
+    Node* curr = temp.headPtr;
     while (curr != NULL)
     {
-        cout << curr.data << "  ";
-        curr = curr.next;
+        cout << curr->data << "  ";
+        curr = curr->next;
     }
     cout << endl;
 }
 
+
 //compare function
+void LinkedList::compare(){
+    string name1;   //stores name of first restaurant
+    string name2;   //stores name of second restaurant
+    bool correct = true;
+
+    do (correct){
+
+    cout << "\nWhat is the name of the first restaurant?\n";
+    getline(cin, name1);
+
+    
+    } wh
+    } while 
+
+
+
+
+
+}
     /*this one should be simple. all it does is take two objects as arguments, takes the 
     ratings, and prints "this restaurant (rating) is rated higher than that restaurant 
     (rating)" or "this restaurant and that restaurant are rated equally (rating)"*/
