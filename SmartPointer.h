@@ -39,7 +39,7 @@ template <class T> class SmartPtr{
         return ptr == other.ptr || (ptr && other.ptr && *ptr == other.ptr);
     }
 
-    bool != (const SmartPtr& other) const {
+    bool operator != (const SmartPtr& other) const {
         return !(*this == other);
     }
 

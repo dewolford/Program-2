@@ -20,7 +20,8 @@ class LinkedList
 {
     private:
         struct Node 
-        {
+        {   
+            Restaurants resty;
             int data;
             Node* next;
             Node* prev;
@@ -65,7 +66,7 @@ class LinkedList
 
 
         //add to list (append, prepend, insert)
-        void insertAtFront(LinkedList);
+        void insertAtFront(Restaurants);
         void insertAtBack(LinkedList);
         
         //get from list (back, front, at)
