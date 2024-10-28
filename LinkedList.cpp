@@ -92,9 +92,6 @@ Restaurants LinkedList::getRes()
 }
 
 
-
-
-
 //add to list (append, prepend, insert)
 void LinkedList::insertAtFront(Restaurants temp)
 {
@@ -103,6 +100,20 @@ void LinkedList::insertAtFront(Restaurants temp)
     newNode = new Node;
     newNode->resty = temp;
     newNode->next = NULL; 
+    // If there are no nodes in the list make newNode the first node.
+	if (!headPtr ) 
+	{
+		headPtr = newNode;
+		tailPtr = newNode;
+	}
+	else  // Otherwise, insert newNode at end.
+	{
+		//set the current last node's next pointer to the new node
+		tailPtr->next = newNode;
+		
+		//now the tail is the new node
+		tailPtr = newNode;
+	}
 }
 
 void LinkedList::insertAtBack(LinkedList temp)
