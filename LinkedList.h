@@ -78,7 +78,10 @@ class LinkedList
         Node* removeFrom(int);
         
         //sorting function
-        void sort(LinkedList, int, int);
+        void sort(Node*, Node*);
+        Node* partition(Node*, Node*);
+        void swap(Node*, Node*);
+
 
         //print function
         void printList();

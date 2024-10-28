@@ -9,9 +9,6 @@
 
 using namespace std;
 
-void Merge(LinkedList, int, int, int);
-
-
 //constructors
 LinkedList::LinkedList()
 {
@@ -222,37 +219,53 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
 }
 
 //sorting function
-void LinkedList::sort(LinkedList temp, int beg, int end)
+void LinkedList::sort(Node* low, Node* high)
 {
-    Node* okay = temp.headPtr;
+    LinkedList temp;
 
-    cout << "\nSorting the array with the Merge Sort algorithm.\n\n";
+    cout << "\nSorting the array with the Quick Sort algorithm.\n\n";
 
-    int mid;
-
-    if (beg < end)
+    if((low != nullptr) && (high != nullptr) && (low != high) && (low != high->next))
     {
-        mid = (beg + end) / 2; //find mid point
-        
-        sort(temp, beg, mid); //recursively sort left partition
-        sort(temp, mid, end); //recursively sort right partition
+        Node* pivot = partition(low, high);
 
-        //merge partitions in sorted order
-        Merge(temp, beg, mid, end);
+        sort(low, pivot->prev);
+
+        sort(pivot->next, high);
     }
 
     cout << "\nSuccessfully sorted restaurant list!\n";
 }
 
-//merge sorting function results
-void Merge(LinkedList temp, int beg, int mid, int end)
+LinkedList::Node* LinkedList::partition(Node* low, Node* high)
 {
-    int mergedSize = end - beg + 1;
-    int mergePos = 0;
-    int left = 0;
-    int right = 0;
-    
+    int pivot = high->data;
+
+    Node* temp = low->prev;
+
+    for (Node* x = low; x != high; x = x->next)
+    {
+        if(x->data <= pivot)
+        {
+            temp = temp->next;
+            swap(temp, x);
+        }
+    }
+
+    temp = temp->next;
+
+    swap(temp, high);
+
+    return temp;
 }
+
+void LinkedList::swap(Node* a, Node* b)
+{
+    int temp = a->data;
+    a->data = b->data;
+    b->data = temp;
+}
+
 
 //print function
 void LinkedList::printList()
