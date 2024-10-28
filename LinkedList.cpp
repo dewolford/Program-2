@@ -97,12 +97,13 @@ Restaurants LinkedList::getRes()
 
 
 //add to list (append, prepend, insert)
-void LinkedList::insertAtFront(LinkedList temp)
+void LinkedList::insertAtFront(Restaurants temp)
 {
-    Node* newData = temp.getHeadPtr();
-    temp.setHeadPtr(newData);
-    
-    cout << "\nSuccessfully added to restaurant list!\n";
+    Node *newNode;
+
+    newNode = new Node;
+    newNode->resty = temp;
+    newNode->next = NULL; 
 }
 
 void LinkedList::insertAtBack(LinkedList temp)

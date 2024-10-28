@@ -51,7 +51,7 @@ int main(){
                 restyList.push_back(SmartPtr<Restaurants>(new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder)));
                 Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);/*idk if this is right please double check*/
                 /*call append list funtion? with constructed restaurant*/    
-                linkLst.insertAtBack(restyList.get(itorator));
+                linkLst.insertAtBack(itorator);
                 break;
             case 2: 
                 //delete a restaurant case
