@@ -19,7 +19,7 @@ int main(){
     int choice2;//contains the users choice for inside the menu
     bool cont = true; //used in the do while loop to determine if they quit or not
     string nameHolder, locationHolder, typeHolder,PHH;  //holds other restaurant information for constructor
-    double ratingHolder;                            //holds restaurant rating for constructor
+    double ratingHolder;                                //holds restaurant rating for constructor
     Restaurants Rst;
     SmartPtr<string> ptr(new string());
     *ptr = PHH;
@@ -85,9 +85,9 @@ int main(){
                 //Compare restaurants case
 
                 /*call compare restaurant function with two restaurants as arguments*/
+
                 break;
-            default:
-                //this case quits if any number besides 1-5 are entered
+            default:    //this case quits if any number besides 1-5 are entered
                 //quit case
 
                 cout << "\n\nYou have successfully quit! Thanks for visiting!";

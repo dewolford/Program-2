@@ -14,8 +14,8 @@ void printMenu(){
 //validates double input
 double validateInput(double dub, int min, int max){
     while(!(cin >> dub)|| dub < min || max < dub){
-        cin.clear();
         cout << "Please enter a valid number inside the bounds" << endl;
+        cin.clear();
         cin.ignore(10000, '\n'); //removes up to 10000 characters from buffer until a newline is removed
         cout << "\nEnter a number: ";
     }
