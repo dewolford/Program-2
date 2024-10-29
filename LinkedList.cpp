@@ -299,32 +299,77 @@ void LinkedList::printList()
 void LinkedList::compare(){
     string name1;   //stores name of first restaurant
     string name2;   //stores name of second restaurant
-    LinkedList tempList;
+    //LinkedList tempList;
     Node* currentNode = headPtr;
     Node* res1;     //pointer to the first restaurant in the linked list
     Node* res2;     //pointer to the second restaurant in the linked list
     int num;        //num used for user input
     bool tryAgain = true;
-    bool correct = true;
+    bool correct = false;
 
+    //gets pointer to the first restaurant
     do{
 
-    cout << "\nWhat is the name of the first restaurant?\n";
-    getline(cin, name1);
-    for (int i = 0;i< ){
+        cout << "\nWhat is the name of the first restaurant?\n";
+        getline(cin, name1);
+        for (int i = 0;i< getSize(); i++){
+            if (name1 == currentNode.getRes().getName()){
+                res1 = currentNode;
+                break;
+            }
+            currentNode = currentNode->next; 
+        }
+        if (name1 != currentNode.getRes().getName()){
+            cout << "\nCould not find restaurant: " << name1 << ". Would you like to try again(1) or quit?(2)\n";
+            num = validateInput(num, 1,2);
+            if (num == 1){
+                
+            } else{
+                tryAgain = false;
+                correct = true;
 
-        if (name1 == tempList.getRes().getName()){
-            
+            }
+        }
+    } while  (!correct);
+
+    //if they didn't quit
+    if (tryAgain){
+        do{
+
+            cout << "\nWhat is the name of the second restaurant?\n";
+            getline(cin, name2);
+            for (int i = 0;i< getSize(); i++){
+                if (name2 == currentNode.getRes().getName()){
+                    res2 = currentNode;
+                    break;
+                }
+                currentNode = currentNode->next; 
+            }
+            if (name2 != currentNode.getRes().getName()){
+                cout << "\nCould not find restaurant: " << name1 << ". Would you like to try again(1) or quit?(2)\n";
+                num = validateInput(num, 1,2);
+                if (num == 1){
+                    
+                } else{
+                    tryAgain = false;
+                    correct = true;
+
+                }
+            }
+        } while  (!correct);
+        if (tryAgain){
+            if (res1.getRes()> res2.getRes()){
+                cout << res1.getRes().getName() << " in " << res1.getRes().getLocation() << " (" << res1.getRes().getRating() << ") is rated higher than ";
+                cout << res2.getRes().getName() << " in " << res2.getRes().getLocation() << " (" << res2.getRes().getRating() << ").";
+            } else if (res1.getRes()< res2.getRes()){
+                cout << res1.getRes().getName() << " in " << res1.getRes().getLocation() << " (" << res1.getRes().getRating() << ") is rated lower than ";
+                cout << res2.getRes().getName() << " in " << res2.getRes().getLocation() << " (" << res2.getRes().getRating() << ")."; 
+            } else {
+                cout << res1.getRes().getName() << " in " << res1.getRes().getLocation() << " (" << res1.getRes().getRating() << ") is rated equal to ";
+                cout << res2.getRes().getName() << " in " << res2.getRes().getLocation() << " (" << res2.getRes().getRating() << ").";
+            }
         }
     }
-
-    
-    currentNode = tempList.headPtr->next;
-    
-    num = validateInput(num, 1,2);
-
-    
-    } while  (!correct);
 
 
 

@@ -26,7 +26,7 @@ class Restaurants
         Restaurants(); //default
         Restaurants(string, string, string, double); //overloaded
 
-        //deconstructor
+        //destructor
         ~Restaurants();
 
         //setters
@@ -40,6 +40,27 @@ class Restaurants
         string getLocation();
         string getFood();
         double getRating();
+        
+        //overloaded << operator
+        friend std::ostream& operator<<(std::ostream& os, const Restaurants& restaurants) {
+            os << restaurants.name << " (" << restaurants.rating << ") in " << restaurants.location << " sells " << restaurants.food << "."; /* */
+            return os;
+        }
+
+        // == boolean operator
+        bool operator==(const Restaurants& right_comparison) {
+            return this->rating == right_comparison.rating;
+        }
+
+        // < boolean operator
+        bool operator < (const Restaurants& right_comparison) { 
+            return this->rating  < right_comparison.rating;
+        }
+        
+        // > boolean operator
+        bool operator > (const Restaurants& right_comparison) {
+            return this->rating > right_comparison.rating;
+        }
 };
 
 #endif 

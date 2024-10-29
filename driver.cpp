@@ -77,15 +77,11 @@ int main(){
                 break;
             case 4:
                 //sort restaurant list case
-                
-                /*call sort linked list sort function*/
-                
+                linkLst.sort();
                 break;
             case 5: 
                 //Compare restaurants case
-
-                /*call compare restaurant function with two restaurants as arguments*/
-
+                linkLst.compare();
                 break;
             default:    //this case quits if any number besides 1-5 are entered
                 //quit case
