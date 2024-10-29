@@ -244,13 +244,13 @@ void LinkedList::sort(Node* low, Node* high)
 
 LinkedList::Node* LinkedList::partition(Node* low, Node* high)
 {
-    int pivot = high->data;
+    double pivot = high->resty->getRating();
 
     Node* temp = low->prev;
 
     for (Node* x = low; x != high; x = x->next)
     {
-        if(x->data <= pivot)
+        if(x->resty->getRating() <= pivot)
         {
             temp = temp->next;
             swap(temp, x);
@@ -265,9 +265,9 @@ LinkedList::Node* LinkedList::partition(Node* low, Node* high)
 }
 
 void LinkedList::swap(Node* a, Node* b){
-    int temp = a->data;
-    a->data = b->data;
-    b->data = temp;
+    Node* temp = a;
+    a = b;
+    b = temp;
 }
 
 void LinkedList::printList(){
