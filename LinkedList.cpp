@@ -15,15 +15,13 @@ LinkedList::LinkedList()
     headPtr = NULL;
     tailPtr = NULL;
     size = 0;
-    Restaurants();
 }
 
-LinkedList::LinkedList(Node* h, Node* t, int s, Restaurants r)
+LinkedList::LinkedList(Node* h, Node* t, int s)
 {
     headPtr = h;
     tailPtr = t;
     size = s;
-    res = r;
 }
 
 //destructor
@@ -65,11 +63,6 @@ void LinkedList::setSize(int s)
     size = s;
 }
 
-void LinkedList::setRes(Restaurants r)
-{
-    res = r;
-}
-
 //getters
 LinkedList::Node* LinkedList::getHeadPtr()
 {
@@ -86,10 +79,7 @@ int LinkedList::getSize()
     return size;
 }
 
-Restaurants LinkedList::getRes()
-{
-    return res;
-}
+
 
 
 //add to list (append, prepend, insert)
@@ -126,19 +116,19 @@ void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
 
 
 //get from list (back, front, at)
-int LinkedList::front()
+double LinkedList::front()
 {
     LinkedList temp;
     return temp.getHeadPtr()->resty.getRating();
 }
 
-int LinkedList::back()
+double LinkedList::back()
 {
     LinkedList temp;
     return temp.getTailPtr()->resty.getRating();
 }
 
-int LinkedList::at(int num)
+double LinkedList::at(int num)
 {
     LinkedList okay;
     Node* temp = okay.headPtr;

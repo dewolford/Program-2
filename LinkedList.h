@@ -22,12 +22,10 @@ class LinkedList
         struct Node 
         {   
             Restaurants* resty;
-            int data;
             Node* next;
             Node* prev;
 
             Node() {
-                data = 0;
                 prev = next = nullptr;
                 resty.setFood(" ");
                 resty.setLocation(" ");
@@ -36,25 +34,23 @@ class LinkedList
 
             }
 
-            Node(int d) {
-                data = d;
+            Node(string food, string location, string name, double rating) {
                 prev = next = nullptr;
-                resty.setFood(" ");
-                resty.setLocation(" ");
-                resty.setName(" ");
-                resty.setRating(0);//should not need the resty functions.
+                resty.setFood(food);
+                resty.setLocation(location);
+                resty.setName(name);
+                resty.setRating(rating);//should not need the resty functions.
             }
         };
         
         Node* headPtr;
         Node* tailPtr;
         int size;
-        Restaurants res;
 
     public:
         //constructors
         LinkedList();
-        LinkedList(Node*, Node*, int, Restaurants);
+        LinkedList(Node*, Node*, int);
         
         //destructor
         ~LinkedList();
@@ -63,13 +59,11 @@ class LinkedList
         void setHeadPtr(Node*);
         void setTailPtr(Node*);
         void setSize(int);
-        void setRes(Restaurants);
 
         //getters
         Node* getHeadPtr();
         Node* getTailPtr();
         int getSize();
-        Restaurants getRes();
         
 
 
@@ -79,9 +73,9 @@ class LinkedList
         void insertAtBack(LinkedList);
         
         //get from list (back, front, at)
-        int front();
-        int back();
-        int at(int);
+        double front();
+        double back();
+        double at(int);
         
         //remove from list (pop, remove, etc)
         Node* pop();
