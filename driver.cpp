@@ -53,18 +53,20 @@ int main(){
                 /*call append list funtion? with constructed restaurant*/    
                 linkLst.insertAtFront(Rst);
                 break;
+
             case 2: 
                 //delete a restaurant case
                 for (auto it = restyList.begin(); it != restyList.end(); it++ )
-                {   if((*it)->getName/*would work if added to restarunt.h so it accesses name directly*/ == nameHolder)
+                {   if((*it)->getName()/*would work if added to restaurant.h so it accesses name directly*/ == nameHolder)
                         restyList.erase(it);
                         break;
                 }
                 restyList;
-                /*call destructor for restaurant?*/                 /*idk if this is right please double check*/
+                /*call destructor for restaurant?*/
                 /*call remove list function?*/
 
                 break;
+
             case 3: 
                 //display a restaurant case
                 cout << "\nDisplay one restaurant(1) or all restaurants(2)?";
@@ -75,14 +77,17 @@ int main(){
                     //list.displaylist();/*call << Restaurant function for all in list (sorry), this can be done in a for statement if need be*/
                 }
                 break;
+
             case 4:
-                //sort restaurant list case
-                linkLst.sort();
+                //sort restaurant list case, calls the linked list sort function. sorts list so it will print in order
+                //linkLst.sort();
                 break;
+
             case 5: 
                 //Compare restaurants case
                 linkLst.compare();
                 break;
+
             default:    //this case quits if any number besides 1-5 are entered
                 //quit case
 
