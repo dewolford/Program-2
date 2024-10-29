@@ -124,34 +124,6 @@ void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
     cout << "\nSuccessfully added to restaurant list!\n";
 }
 
-//**************************************************
-// displayList shows the value                     *
-// stored in each node of the linked list          *
-// pointed to by head.                             *
-//**************************************************
-/*void LinkedList::displayList() const
-{
-	ListNode *nodePtr;  // To move through the list
-
-	if(head != NULL)
-	{
-		// Position nodePtr at the head of the list.
-		nodePtr = head;
-		// While nodePtr points to a node, traverse the list.
-		while (nodePtr)
-		{
-			// Display the value in this node.
-			cout << nodePtr->value << endl;
-
-			// Move to the next node.
-			nodePtr = nodePtr->next;
-		}
-	}
-	else
-		cout << "\nThere are no nodes in the list.\n\n";
-}*/// this is an example code, we can use this to correct the accessor function for the list
-
-
 
 //get from list (back, front, at)
 int LinkedList::front()
@@ -309,6 +281,32 @@ void LinkedList::swap(Node* a, Node* b)
     b->data = temp;
 }
 
+//**************************************************
+// displayList shows the value                     *
+// stored in each node of the linked list          *
+// pointed to by head.                             *
+//**************************************************
+/*void LinkedList::displayList() const
+{
+	ListNode *nodePtr;  // To move through the list
+
+	if(head != NULL)
+	{
+		// Position nodePtr at the head of the list.
+		nodePtr = head;
+		// While nodePtr points to a node, traverse the list.
+		while (nodePtr)
+		{
+			// Display the value in this node.
+			cout << nodePtr->value << endl;
+
+			// Move to the next node.
+			nodePtr = nodePtr->next;
+		}
+	}
+	else
+		cout << "\nThere are no nodes in the list.\n\n";
+}*/// this is an example code, we can use this to correct the print function for the list
 
 //print function
 void LinkedList::printList()

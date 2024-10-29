@@ -72,7 +72,7 @@ int main(){
                 if (choice2 == 1){
                     /*call << Restaurant function*/
                 } else {
-                    /*call << Restaurant function for all in list (sorry), this can be done in a for statement if need be*/
+                    //list.displaylist();/*call << Restaurant function for all in list (sorry), this can be done in a for statement if need be*/
                 }
                 break;
             case 4:
