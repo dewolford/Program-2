@@ -119,13 +119,13 @@ void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
 double LinkedList::front()
 {
     LinkedList temp;
-    return temp.getHeadPtr()->resty.getRating();
+    return temp.getHeadPtr()->resty->getRating();
 }
 
 double LinkedList::back()
 {
     LinkedList temp;
-    return temp.getTailPtr()->resty.getRating();
+    return temp.getTailPtr()->resty->getRating();
 }
 
 double LinkedList::at(int num)
@@ -140,7 +140,7 @@ double LinkedList::at(int num)
         temp2 = temp->next;
     }
 
-    return temp->resty.getRating();
+    return temp->resty->getRating();
 }
 
 //remove from list (pop, remove, etc)
@@ -264,51 +264,26 @@ LinkedList::Node* LinkedList::partition(Node* low, Node* high)
     return temp;
 }
 
-void LinkedList::swap(Node* a, Node* b)
-{
+void LinkedList::swap(Node* a, Node* b){
     int temp = a->data;
     a->data = b->data;
     b->data = temp;
 }
 
-//**************************************************
-// displayList shows the value                     *
-// stored in each node of the linked list          *
-// pointed to by head.                             *
-//**************************************************
-/*void LinkedList::displayList() const
-{
-	ListNode *nodePtr;  // To move through the list
+void LinkedList::printList(){
 
-	if(head != NULL)
-	{
-		// Position nodePtr at the head of the list.
-		nodePtr = head;
-		// While nodePtr points to a node, traverse the list.
-		while (nodePtr)
-		{
-			// Display the value in this node.
-			cout << nodePtr->value << endl;
+	Node* nodePtr = headPtr;//starts the current node at the front
 
-			// Move to the next node.
+	if(headPtr == NULL)
+		cout << "\nThere are no restaurants in the list.\n";
+	else{
+		while (nodePtr) {
+			cout << nodePtr->resty << endl;
+
+			//Moves to the next node
 			nodePtr = nodePtr->next;
 		}
-	}
-	else
-		cout << "\nThere are no nodes in the list.\n\n";
-}*/// this is an example code, we can use this to correct the print function for the list
-
-//print function
-void LinkedList::printList()
-{
-    LinkedList temp;
-    Node* curr = temp.headPtr;
-    while (curr != NULL)
-    {
-        cout << curr->data << "  ";
-        curr = curr->next;
     }
-    cout << endl;
 }
 
 
@@ -316,13 +291,12 @@ void LinkedList::printList()
 void LinkedList::compare(){
     string name1;   //stores name of first restaurant
     string name2;   //stores name of second restaurant
-    //LinkedList tempList;
-    Node* currentNode = headPtr;
+    Node* currentNode = headPtr;    //starts the current node at the front
     Node* res1;     //pointer to the first restaurant in the linked list
     Node* res2;     //pointer to the second restaurant in the linked list
     int num;        //num used for user input
-    bool tryAgain = true;
-    bool correct = false;
+    bool tryAgain = true;   //
+    bool correct = false;   //
 
     //gets pointer to the first restaurant
     do{
@@ -330,13 +304,14 @@ void LinkedList::compare(){
         cout << "\nWhat is the name of the first restaurant?\n";
         getline(cin, name1);
         for (int i = 0;i< getSize(); i++){
-            if (name1 == currentNode.getRes().getName()){
+            if (name1 == currentNode->resty->getName()){
                 res1 = currentNode;
                 break;
             }
+            //Moves to the next node
             currentNode = currentNode->next; 
         }
-        if (name1 != currentNode.getRes().getName()){
+        if (name1 != currentNode->resty->getName()){
             cout << "\nCould not find restaurant: " << name1 << ". Would you like to try again(1) or quit?(2)\n";
             num = validateInput(num, 1,2);
             if (num == 1){
@@ -356,13 +331,14 @@ void LinkedList::compare(){
             cout << "\nWhat is the name of the second restaurant?\n";
             getline(cin, name2);
             for (int i = 0;i< getSize(); i++){
-                if (name2 == currentNode.getRes().getName()){
+                if (name2 == currentNode->resty->getName()){
                     res2 = currentNode;
                     break;
                 }
+                //Moves to the next node
                 currentNode = currentNode->next; 
             }
-            if (name2 != currentNode.getRes().getName()){
+            if (name2 != currentNode->resty->getName()){
                 cout << "\nCould not find restaurant: " << name1 << ". Would you like to try again(1) or quit?(2)\n";
                 num = validateInput(num, 1,2);
                 if (num == 1){
@@ -375,15 +351,15 @@ void LinkedList::compare(){
             }
         } while  (!correct);
         if (tryAgain){
-            if (res1.getRes()> res2.getRes()){
-                cout << res1.getRes().getName() << " in " << res1.getRes().getLocation() << " (" << res1.getRes().getRating() << ") is rated higher than ";
-                cout << res2.getRes().getName() << " in " << res2.getRes().getLocation() << " (" << res2.getRes().getRating() << ").";
-            } else if (res1.getRes()< res2.getRes()){
-                cout << res1.getRes().getName() << " in " << res1.getRes().getLocation() << " (" << res1.getRes().getRating() << ") is rated lower than ";
-                cout << res2.getRes().getName() << " in " << res2.getRes().getLocation() << " (" << res2.getRes().getRating() << ")."; 
+            if (res1->resty> res2->resty){
+                cout << res1->resty->getName() << " in " << res1->resty->getLocation() << " (" << res1->resty->getRating() << ") is rated higher than ";
+                cout << res2->resty->getName() << " in " << res2->resty->getLocation() << " (" << res2->resty->getRating() << ").";
+            } else if (res1->resty< res2->resty){
+                cout << res1->resty->getName() << " in " << res1->resty->getLocation() << " (" << res1->resty->getRating() << ") is rated lower than ";
+                cout << res2->resty->getName() << " in " << res2->resty->getLocation() << " (" << res2->resty->getRating() << ")."; 
             } else {
-                cout << res1.getRes().getName() << " in " << res1.getRes().getLocation() << " (" << res1.getRes().getRating() << ") is rated equal to ";
-                cout << res2.getRes().getName() << " in " << res2.getRes().getLocation() << " (" << res2.getRes().getRating() << ").";
+                cout << res1->resty->getName() << " in " << res1->resty->getLocation() << " (" << res1->resty->getRating() << ") is rated equal to ";
+                cout << res2->resty->getName() << " in " << res2->resty->getLocation() << " (" << res2->resty->getRating() << ").";
             }
         }
     }

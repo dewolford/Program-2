@@ -27,19 +27,19 @@ class LinkedList
 
             Node() {
                 prev = next = nullptr;
-                resty.setFood(" ");
-                resty.setLocation(" ");
-                resty.setName(" ");
-                resty.setRating(0);//again should not need
+                resty->setFood(" ");
+                resty->setLocation(" ");
+                resty->setName(" ");
+                resty->setRating(0);
 
             }
 
             Node(string food, string location, string name, double rating) {
                 prev = next = nullptr;
-                resty.setFood(food);
-                resty.setLocation(location);
-                resty.setName(name);
-                resty.setRating(rating);//should not need the resty functions.
+                resty->setFood(" ");
+                resty->setLocation(" ");
+                resty->setName(" ");
+                resty->setRating(0);
             }
         };
         
@@ -89,6 +89,25 @@ class LinkedList
 
         //print function
         void printList();
+
+        //overloaded << operator
+        //this does the same thing as print function, but it's easier to access.
+        friend std::ostream& operator<<(std::ostream& os, const LinkedList& linkedList) {
+            Node* nodePtr = linkedList.headPtr;//starts the current node at the front
+    
+            if(linkedList.headPtr == NULL)
+                cout << "\nThere are no restaurants in the list.\n";
+            else{
+                while (nodePtr) {
+                    // Display the value in this node.
+                    os << nodePtr->resty << endl;
+
+                    // Move to the next node.
+                    nodePtr = nodePtr->next;
+                }
+            }
+            return os;
+        }
 
         //compare function
         void compare();
