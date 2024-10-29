@@ -93,7 +93,7 @@ Restaurants LinkedList::getRes()
 
 
 //add to list (append, prepend, insert)
-void LinkedList::insertAtFront(Restaurants temp)
+void LinkedList::insertAtFront(Restaurants* temp)
 {
     Node *newNode;
 
@@ -116,13 +116,42 @@ void LinkedList::insertAtFront(Restaurants temp)
 	}
 }
 
-void LinkedList::insertAtBack(LinkedList temp)
+void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
 {
     Node* newData = temp.getTailPtr();
     temp.setTailPtr(newData);
 
     cout << "\nSuccessfully added to restaurant list!\n";
 }
+
+//**************************************************
+// displayList shows the value                     *
+// stored in each node of the linked list          *
+// pointed to by head.                             *
+//**************************************************
+/*void LinkedList::displayList() const
+{
+	ListNode *nodePtr;  // To move through the list
+
+	if(head != NULL)
+	{
+		// Position nodePtr at the head of the list.
+		nodePtr = head;
+		// While nodePtr points to a node, traverse the list.
+		while (nodePtr)
+		{
+			// Display the value in this node.
+			cout << nodePtr->value << endl;
+
+			// Move to the next node.
+			nodePtr = nodePtr->next;
+		}
+	}
+	else
+		cout << "\nThere are no nodes in the list.\n\n";
+}*/// this is an example code, we can use this to correct the accessor function for the list
+
+
 
 //get from list (back, front, at)
 int LinkedList::front()

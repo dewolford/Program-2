@@ -21,7 +21,7 @@ class LinkedList
     private:
         struct Node 
         {   
-            Restaurants resty;
+            Restaurants* resty;
             int data;
             Node* next;
             Node* prev;
@@ -32,7 +32,7 @@ class LinkedList
                 resty.setFood(" ");
                 resty.setLocation(" ");
                 resty.setName(" ");
-                resty.setRating(0);
+                resty.setRating(0);//again should not need
 
             }
 
@@ -42,7 +42,7 @@ class LinkedList
                 resty.setFood(" ");
                 resty.setLocation(" ");
                 resty.setName(" ");
-                resty.setRating(0);
+                resty.setRating(0);//should not need the resty functions.
             }
         };
         
@@ -75,7 +75,7 @@ class LinkedList
 
 
         //add to list (append, prepend, insert)
-        void insertAtFront(Restaurants);
+        void insertAtFront(Restaurants*);
         void insertAtBack(LinkedList);
         
         //get from list (back, front, at)

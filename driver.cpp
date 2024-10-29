@@ -20,7 +20,7 @@ int main(){
     bool cont = true; //used in the do while loop to determine if they quit or not
     string nameHolder, locationHolder, typeHolder,PHH;  //holds other restaurant information for constructor
     double ratingHolder;                                //holds restaurant rating for constructor
-    Restaurants Rst;
+    Restaurants *Rst;
     SmartPtr<string> ptr(new string());
     *ptr = PHH;
     double P = stod(PHH);
@@ -49,9 +49,9 @@ int main(){
                 validateInput(ratingHolder, 0, 5);
                 
                 restyList.push_back(SmartPtr<Restaurants>(new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder)));
-                Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);/*idk if this is right please double check*/
+                Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder); /*idk if this is right please double check*/
                 /*call append list funtion? with constructed restaurant*/    
-                linkLst.insertAtBack(itorator);
+                linkLst.insertAtFront(Rst);
                 break;
             case 2: 
                 //delete a restaurant case
