@@ -223,7 +223,15 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
     return headPtr;
 }
 
-//sorting function
+//sorting functions
+
+//this sorting function with no arguments is used to be called in driver without parameters
+void LinkedList::sort(){
+    //using the tail and head of the list to sort the whole list
+    sort(tailPtr, headPtr);
+}
+
+//this sorting function has parameters so it can be called recursively
 void LinkedList::sort(Node* low, Node* high)
 {
     LinkedList temp;

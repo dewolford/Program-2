@@ -82,6 +82,7 @@ class LinkedList
         Node* removeFrom(int);
         
         //sorting function
+        void sort();
         void sort(Node*, Node*);
         Node* partition(Node*, Node*);
         void swap(Node*, Node*);
@@ -89,6 +90,9 @@ class LinkedList
 
         //print function
         void printList();
+
+        //compare function
+        void compare();
 
         //overloaded << operator
         //this does the same thing as print function, but it's easier to access.
@@ -108,9 +112,6 @@ class LinkedList
             }
             return os;
         }
-
-        //compare function
-        void compare();
 };
 
 #endif

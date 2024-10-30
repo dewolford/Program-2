@@ -16,7 +16,7 @@
 
 using namespace std;
 
-//default constructors
+//constructors
 void printMenu();       
 double validateInput(double, int, int);
 

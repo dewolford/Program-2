@@ -1,7 +1,7 @@
 /*
     Title: driver.cpp
 
-                                                    / * DANI can you add a link to the repository here? thanks* /
+      / *----------------------------------------DANI can you add a link to the repository here? thanks------------------------------* /
 
     Purpose: Runs the main menu case statement
 */
@@ -24,7 +24,7 @@ int main(){
     SmartPtr<string> ptr(new string());
     *ptr = PHH;
     double P = stod(PHH);
-    list<SmartPtr<Restaurants>> restyList;
+    list<SmartPtr<Restaurants> > restyList;
     auto itorator = restyList.begin();
     do {
         //prints the main menu
@@ -57,12 +57,12 @@ int main(){
             case 2: 
                 //delete a restaurant case
                 for (auto it = restyList.begin(); it != restyList.end(); it++ )
-                {   if((*it)->getName()/*would work if added to restaurant.h so it accesses name directly*/ == nameHolder)
+                {   if((*it)->getName() == nameHolder)
                         restyList.erase(it);
                         break;
                 }
                 restyList;
-                /*call destructor for restaurant?*/
+                /*call destructor for restaurant?     is   this   needed? -GABE*/
                 /*call remove list function?*/
 
                 break;
@@ -80,7 +80,7 @@ int main(){
 
             case 4:
                 //sort restaurant list case, calls the linked list sort function. sorts list so it will print in order
-                //linkLst.sort();
+                linkLst.sort();
                 break;
 
             case 5: 
