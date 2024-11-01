@@ -62,7 +62,21 @@ void LinkedList::setTailPtr(Node* t)
 
 void LinkedList::setSize(int s)
 {
-    size = s; 
+    LinkedList okay;                //list variable to be able to set headptr
+    Node* temp = okay.headPtr;      //set temp to first node in the list
+    Node* temp2;                    //temp 2 to iterate through the list
+    int counter = 0;                //counter to get the length
+
+
+    //iterate through list and add to counter each time
+    for(int x = 1; temp2 != nullptr; x++)
+    {
+        temp = okay.headPtr->next;
+        temp2 = temp->next;
+        counter++;
+    }
+
+    size = counter;
 }
 
 //getters
@@ -84,16 +98,16 @@ int LinkedList::getSize()
 
 
 
+
+
 //add to list (append, prepend, insert)
-<<<<<<< HEAD
 
 //function name:        insertAtFront
 //function purpose:     insert a new node at the beginning of a list
-void LinkedList::insertAtFront(Restaurants* temp)
+void LinkedList::addRestaurant(Restaurants* temp)
 {
     Node *newNode; //new node to insert at beginning
 
-    newNode = new Node;
     newNode->resty = temp;
     newNode->next = NULL; 
     // If there are no nodes in the list make newNode the first node.
@@ -111,26 +125,6 @@ void LinkedList::insertAtFront(Restaurants* temp)
 		tailPtr = newNode;
 	}
     cout << "\nSuccessfully added to restaurant list!\n";
-=======
-void LinkedList::addRestaurant(Restaurants* temp)
-{
-    Node* newNode;
-
-    newNode = new Node(temp);
-    if (headPtr == nullptr)
-    {
-        headPtr = newNode;
-    }
-    else
-    {
-        Node* current = headPtr;
-        while (current->next != nullptr)
-        {
-            current = current->next;
-        }
-        current->next = newNode;
-    }
->>>>>>> 30bfb189493f08ce181346e29640118b53c67ab1
 }
 
 //function name:        insertAtBack
@@ -166,7 +160,7 @@ double LinkedList::back()
 //function purpose:     return the entry at a specific point of a list
 double LinkedList::at(int num)
 {
-    LinkedList okay;    //tmep variable to return a node
+    LinkedList okay;    //temp variable to return a node
     Node* temp = okay.headPtr;
     Node* temp2;
 

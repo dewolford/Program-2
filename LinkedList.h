@@ -67,7 +67,7 @@ class LinkedList
         int getSize();
         
 
-
+  
 
         //add to list (append, prepend, insert)
         void addRestaurant(Restaurants*);
@@ -87,7 +87,6 @@ class LinkedList
         void sort(Node*, Node*);
         Node* partition(Node*, Node*);
         void swap(Node*, Node*);
-
 
         //print function
         void printList();
