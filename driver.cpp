@@ -21,9 +21,9 @@ int main(){
     bool correct = false; //used to determine if the correct name has been found while searching the list
     bool tryAgain = true; //used to determine if the user wants to try again 
     string nameHolder, locationHolder, typeHolder,PHH;  //holds other restaurant information for constructor
-    double ratingHolder;   
-    LinkedList::Node* currentNode = linkLst.getHeadPtr();      //holds restaurant rating for constructor
-    LinkedList::Node* displayedRestaurant;
+    double ratingHolder;    //holds the rating of the restaurant for the constructor
+    LinkedList::Node* currentNode = linkLst.getHeadPtr();   //hold the current node in the linked list while parcing
+    LinkedList::Node* displayedRestaurant;  //hold the node of the linked list that will be displayed
     Restaurants *Rst;
     SmartPtr<string> ptr(new string());
     //*ptr = PHH;
@@ -49,12 +49,12 @@ int main(){
                 getline(cin, locationHolder);
                 cout << "\n\nWhat is your restaurant's type of food?";
                 getline(cin, typeHolder);
-                cout << "\n\nWhat is your restaurant rating?";
+                cout << "\n\nWhat is your restaurant rating (0.0-5.0)?";
                 ratingHolder = validateInput(ratingHolder, 0, 5);
                 
                 Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);
 
-                //restyList.push_back(SmartPtr<Restaurants>(Rst));
+                //restyList.push_back(SmartPtr<Restaurants>(Rst));  
                 
                 //calls append list funtion with constructed restaurant
                 linkLst.addRestaurant(Rst);

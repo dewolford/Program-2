@@ -1,6 +1,6 @@
 /*
     Title: restaurants.h
-    Purpose: make the restaurants class
+    Purpose: make and store the restaurants class and its various functions
 */
 
 #ifndef RESTAURANTS_H
