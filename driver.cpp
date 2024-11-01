@@ -50,8 +50,7 @@ int main(){
                 
                 Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);
                 restyList.push_back(SmartPtr<Restaurants>(Rst));
-                 /*idk if this is right please double check*/
-                /*call append list funtion? with constructed restaurant*/    
+                
                 linkLst.addRestaurant(Rst);
                 break;
 
@@ -87,7 +86,7 @@ int main(){
 
             default:    //this case quits if any number besides 1-5 are entered
                 //quit case
-
+                //restyList.
                 cout << "\n\nYou have successfully quit! Thanks for visiting!";
                 cont = false;
                 break;
