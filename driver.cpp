@@ -28,8 +28,8 @@ int main(){
     SmartPtr<string> ptr(new string());
     //*ptr = PHH;
     //double P = stod(PHH);
-    list<SmartPtr<Restaurants> > restyList;
-    //auto itorator = restyList.begin();
+    list<SmartPtr<Restaurants> > restaurantList;
+    //auto itorator = restaurantList.begin();
     do {
         //prints the main menu
         printMenu();
@@ -54,7 +54,7 @@ int main(){
                 
                 Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);
 
-                restyList.push_back(SmartPtr<Restaurants>(Rst));
+                restaurantList.push_back(SmartPtr<Restaurants>(Rst));
                 
                 //calls append list funtion with constructed restaurant
                 linkLst.addRestaurant(Rst);
@@ -82,14 +82,14 @@ int main(){
                         //cin >> nameHolder;
                         getline(cin, nameHolder);
                         for (int i = 0;i< linkLst.getSize(); i++){
-                            if (nameHolder == currentNode->resty->getName()){
+                            if (nameHolder == currentNode->restaurant->getName()){
                                 displayedRestaurant = currentNode;
                                 break;
                             }
                             //Moves to the next node
                             currentNode = currentNode->next; 
                         }
-                        //if (nameHolder != currentNode->resty->getName()){
+                        //if (nameHolder != currentNode->restaurant->getName()){
                             cout << "\nCould not find restaurant: " << nameHolder << ". Would you like to try again(1) or quit?(2)\n";
                             choice2 = validateInput(choice2, 1,2);
                             if (choice2 == 1){
@@ -102,7 +102,7 @@ int main(){
                     } while  (!correct);
                     if (tryAgain){
                         //prints restaurant using its << operator
-                        cout << currentNode->resty;
+                        cout << currentNode->restaurant;
                     }
                 } else {
                     linkLst.printList();
@@ -123,7 +123,7 @@ int main(){
 
             default:    //this case quits if any number besides 1-5 are entered
                 //quit case
-                //restyList.
+                //restaurantList.
                 cout << "\n\nYou have successfully quit! Thanks for visiting!";
                 cont = false;
                 break;

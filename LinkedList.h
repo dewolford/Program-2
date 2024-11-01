@@ -18,26 +18,26 @@ class LinkedList
     public:
         struct Node 
         {   
-            Restaurants* resty;
+            Restaurants* restaurant;
             Node* next;
             Node* prev;
 
-            Node(Restaurants* res) : resty(res), next(nullptr) {}
+            Node(Restaurants* res) : restaurant(res), next(nullptr) {}
             /*Node() {
                 prev = next = nullptr;
-                resty->setFood(" ");
-                resty->setLocation(" ");
-                resty->setName(" ");
-                resty->setRating(0);
+                restaurant->setFood(" ");
+                restaurant->setLocation(" ");
+                restaurant->setName(" ");
+                restaurant->setRating(0);
 
             }
 
             Node(string food, string location, string name, double rating) {
                 prev = next = nullptr;
-                resty->setFood(" ");
-                resty->setLocation(" ");
-                resty->setName(" ");
-                resty->setRating(0);
+                restaurant->setFood(" ");
+                restaurant->setLocation(" ");
+                restaurant->setName(" ");
+                restaurant->setRating(0);
             }*/
         };
         private:
@@ -104,7 +104,7 @@ class LinkedList
             else{
                 while (nodePtr) {
                     // Display the value in this node.
-                    os << nodePtr->resty << endl;
+                    os << nodePtr->restaurant << endl;
 
                     // Move to the next node.
                     nodePtr = nodePtr->next;
