@@ -83,12 +83,25 @@ int LinkedList::getSize()
 
 
 //add to list (append, prepend, insert)
-void LinkedList::insertAtFront(Restaurants* temp)
+void LinkedList::addRestaurant(Restaurants* temp)
 {
-    Node *newNode;
+    Node* newNode;
 
-    newNode = new Node;
-    newNode->resty = temp;
+    newNode = new Node(temp);
+    if (headPtr == nullptr)
+    {
+        headPtr = newNode;
+    }
+    else
+    {
+        Node* current = headPtr;
+        while (current->next != nullptr)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+    
     newNode->next = NULL; 
     // If there are no nodes in the list make newNode the first node.
 	if (!headPtr ) 

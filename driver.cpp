@@ -48,8 +48,9 @@ int main(){
                 cout << "\n\nWhat is your restaurant rating?";
                 validateInput(ratingHolder, 0, 5);
                 
-                restyList.push_back(SmartPtr<Restaurants>(new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder)));
-                Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder); /*idk if this is right please double check*/
+                Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);
+                restyList.push_back(SmartPtr<Restaurants>(Rst));
+                 /*idk if this is right please double check*/
                 /*call append list funtion? with constructed restaurant*/    
                 linkLst.insertAtFront(Rst);
                 break;
@@ -64,6 +65,7 @@ int main(){
                 //restyList;
                 /*call destructor for restaurant?     is   this   needed? -GABE*/
                 /*call remove list function?*/
+
 
                 break;
 

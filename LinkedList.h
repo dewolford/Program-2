@@ -25,7 +25,8 @@ class LinkedList
             Node* next;
             Node* prev;
 
-            Node() {
+            Node(Restaurants* res) : resty(res), next(nullptr) {}
+            /*Node() {
                 prev = next = nullptr;
                 resty->setFood(" ");
                 resty->setLocation(" ");
@@ -40,7 +41,7 @@ class LinkedList
                 resty->setLocation(" ");
                 resty->setName(" ");
                 resty->setRating(0);
-            }
+            }*/
         };
         
         Node* headPtr;
@@ -69,7 +70,7 @@ class LinkedList
 
 
         //add to list (append, prepend, insert)
-        void insertAtFront(Restaurants*);
+        void addRestaurant(Restaurants*);
         void insertAtBack(LinkedList);
         
         //get from list (back, front, at)
