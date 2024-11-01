@@ -254,7 +254,7 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
     }
 
     delete temp2;
-    cout << "\nSuccessfully removed from restaurant list!\n";
+    //cout << "\nSuccessfully removed from restaurant list!\n";
     return headPtr;
 }
 
