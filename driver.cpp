@@ -119,7 +119,6 @@ int main(){
                 break;
             case 5: 
                 //Compare restaurants
-
                 cin.ignore(10000, '\n'); //clears buffer before name is typed
                 linkLst.compare();
                 break;

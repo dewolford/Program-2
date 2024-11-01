@@ -435,17 +435,15 @@ void LinkedList::compare(){
                 break;
             }
             //Moves to the next node
+            cout << currentNode->restaurant->getName() << endl;
             currentNode = currentNode->next; 
         }
         if (name1 != currentNode->restaurant->getName()){
             cout << "\nCould not find restaurant: " << name1 << ". Would you like to try again(1) or quit?(2)\n";
             num = validateInput(num, 1,2);
-            if (num == 1){
-                
-            } else{
+            if (num != 1){
                 tryAgain = false;
                 correct = true;
-
             }
         }
     } while  (!correct);
@@ -467,9 +465,7 @@ void LinkedList::compare(){
             if (name2 != currentNode->restaurant->getName()){
                 cout << "\nCould not find restaurant: " << name2 << ". Would you like to try again(1) or quit?(2)\n";
                 num = validateInput(num, 1,2);
-                if (num == 1){
-                    
-                } else{
+                if (num != 1){
                     tryAgain = false;
                     correct = true;
 
