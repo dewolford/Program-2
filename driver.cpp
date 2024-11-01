@@ -39,7 +39,7 @@ int main(){
         switch(choice){
 
             case 1:
-                // add a restaurant case
+                // add a restaurant
 
                 //reads in new restaurant information
                 cout << "\n\nWhat is your restaurant name?";
@@ -50,21 +50,22 @@ int main(){
                 cout << "\n\nWhat is your restaurant's type of food?";
                 getline(cin, typeHolder);
                 cout << "\n\nWhat is your restaurant rating?";
-                validateInput(ratingHolder, 0, 5);
+                ratingHolder = validateInput(ratingHolder, 0, 5);
                 
                 Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);
 
-                restaurantList.push_back(SmartPtr<Restaurants>(Rst));
+                //restyList.push_back(SmartPtr<Restaurants>(Rst));
                 
                 //calls append list funtion with constructed restaurant
                 linkLst.addRestaurant(Rst);
-                cout << "\nSucessfully added " << nameHolder <<" to list!\n\n";
                 break;
 
             case 2: 
                 //deletes a restaurant
                 cout << "\nWhat is the name of the Restaurant you want to delete? (copy name as shown)";
                 linkLst.printList();
+                cin.ignore(10000, '\n'); //clears buffer before name is typed
+        
                 getline(cin, nameHolder);
                 linkLst.deleteRestaurant(nameHolder);
                 break;
@@ -72,14 +73,15 @@ int main(){
             case 3: 
                 //display a restaurant 
                 cout << "\nDisplay one restaurant(1) or all restaurants(2)?";
-                cin.clear(); //clears buffer before name is typed
-                validateInput(choice2, 1, 2);
+                linkLst.printList();
+
+                cin.ignore(10000, '\n'); //clears buffer before name is typed
+                choice2 = validateInput(choice2, 1, 2);
                 if (choice2 == 1){
                     do{
 
                         cout << "\nWhat is the name of the restaurant you want to display?\n";
-                        cin.clear();
-                        //cin >> nameHolder;
+                        cin.ignore(10000, '\n'); //clears buffer before name is typed
                         getline(cin, nameHolder);
                         for (int i = 0;i< linkLst.getSize(); i++){
                             if (nameHolder == currentNode->restaurant->getName()){
@@ -110,21 +112,21 @@ int main(){
                 break;
 
             case 4:
-                //sort restaurant list case, calls the linked list sort function. sorts list so it will print in order
+                //sort restaurant list
+                
+                //calls sort function that sorts the linked list
                 linkLst.sort();
                 break;
-
             case 5: 
-                //LinkedList::Node* foundnode = linkLst.findNode(nameHolder);
-                //Compare restaurants case
+                //Compare restaurants
+
                 cin.ignore(10000, '\n'); //clears buffer before name is typed
                 linkLst.compare();
                 break;
-
             default:    //this case quits if any number besides 1-5 are entered
                 //quit case
-                //restaurantList.
-                cout << "\n\nYou have successfully quit! Thanks for visiting!";
+                
+                cout << "\n\nYou have successfully quit! Thanks for visiting!\n\n";
                 cont = false;
                 break;
         }

@@ -287,7 +287,7 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
 
 void LinkedList::deleteRestaurant(const string& name)
 {   
-    if ( headPtr == nullptr)
+    if (headPtr == nullptr)
     {
         cout << "\nList is empty" << endl;
         return;
