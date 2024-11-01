@@ -81,6 +81,7 @@ class LinkedList
         //remove from list (pop, remove, etc)
         Node* pop();
         Node* removeFrom(int);
+        void deleteRestaurant(const string&);
         
         //sorting function
         void sort();
@@ -90,7 +91,7 @@ class LinkedList
 
 
         //print function
-        void printList();
+        void printList()const;
 
         //compare function
         void compare();
