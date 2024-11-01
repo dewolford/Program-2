@@ -89,7 +89,6 @@ class LinkedList
         Node* partition(Node*, Node*);
         void swap(Node*, Node*);
 
-
         //print function
         void printList()const;
 

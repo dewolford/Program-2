@@ -62,7 +62,21 @@ void LinkedList::setTailPtr(Node* t)
 
 void LinkedList::setSize(int s)
 {
-    size = s; 
+    LinkedList okay;                //list variable to be able to set headptr
+    Node* temp = okay.headPtr;      //set temp to first node in the list
+    Node* temp2;                    //temp 2 to iterate through the list
+    int counter = 0;                //counter to get the length
+
+
+    //iterate through list and add to counter each time
+    for(int x = 1; temp2 != nullptr; x++)
+    {
+        temp = okay.headPtr->next;
+        temp2 = temp->next;
+        counter++;
+    }
+
+    size = counter;
 }
 
 //getters
@@ -96,25 +110,33 @@ LinkedList::Node* LinkedList::findNode(const string& name)
     return nullptr;
 }
 
+
+
 //add to list (append, prepend, insert)
+
+//function name:        insertAtFront
+//function purpose:     insert a new node at the beginning of a list
 void LinkedList::addRestaurant(Restaurants* temp)
 {
-    Node* newNode;
+    Node *newNode; //new node to insert at beginning
 
-    newNode = new Node(temp);
-    if (headPtr == nullptr)
-    {
-        headPtr = newNode;
-    }
-    else
-    {
-        Node* current = headPtr;
-        while (current->next != nullptr)
-        {
-            current = current->next;
-        }
-        current->next = newNode;
-    }
+    newNode->resty = temp;
+    newNode->next = NULL; 
+    // If there are no nodes in the list make newNode the first node.
+	if (!headPtr ) 
+	{
+		headPtr = newNode;
+		tailPtr = newNode;
+	}
+	else  // Otherwise, insert newNode at end.
+	{
+		//set the current last node's next pointer to the new node
+		tailPtr->next = newNode;
+		
+		//now the tail is the new node
+		tailPtr = newNode;
+	}
+    cout << "\nSuccessfully added to restaurant list!\n";
 }
 
 //function name:        insertAtBack
@@ -150,7 +172,7 @@ double LinkedList::back()
 //function purpose:     return the entry at a specific point of a list
 double LinkedList::at(int num)
 {
-    LinkedList okay;    //tmep variable to return a node
+    LinkedList okay;    //temp variable to return a node
     Node* temp = okay.headPtr;
     Node* temp2;
 
