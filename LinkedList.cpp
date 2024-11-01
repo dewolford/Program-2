@@ -95,6 +95,21 @@ int LinkedList::getSize()
     return size;
 }
 
+//find the restaurent
+Restaurants* LinkedList::findRestaureants(const string& name)
+{
+    Node* current = headPtr;
+    while (current != nullptr)
+    {
+        if (current != nullptr)
+        {
+            return current->resty;//returns restaurant if fount
+        }
+        current = current->next;
+    }
+    return nullptr; // returns null if not found
+}
+
 //public node so main function can access
 LinkedList::Node* LinkedList::findNode(const string& name)
 {   Node* current = headPtr;

@@ -59,7 +59,7 @@ int main(){
               
                 cout << "\nWhat is the name of the Restaurant you want to delete? (copy name as shown)";
                 linkLst.printList();
-                cin >> nameHolder;
+                getline(cin, nameHolder);
                 linkLst.deleteRestaurant(nameHolder);
                 break;
 
@@ -80,7 +80,7 @@ int main(){
                 break;
 
             case 5: 
-                Node* foundnode = linkLst.findNode(nameHolder);
+                LinkedList::Node* foundnode = linkLst.findNode(nameHolder);
                 //Compare restaurants case
                 linkLst.compare();
                 break;

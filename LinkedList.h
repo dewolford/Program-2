@@ -18,7 +18,7 @@ using namespace std;
 
 class LinkedList
 {
-    private:
+    public:
         struct Node 
         {   
             Restaurants* resty;
@@ -43,7 +43,7 @@ class LinkedList
                 resty->setRating(0);
             }*/
         };
-        
+        private:
         Node* headPtr;
         Node* tailPtr;
         int size;
@@ -66,6 +66,8 @@ class LinkedList
         Node* getTailPtr();
         int getSize();
         
+        //finder function
+        Restaurants* findRestaureants(const string&);
         //public node accessor function
         Node* findNode(const string&);
 
