@@ -10,18 +10,19 @@
 using namespace std;
 
 //constructors
+//default constructor
 LinkedList::LinkedList()
 {
-    headPtr = NULL;
-    tailPtr = NULL;
-    size = 0;
+    headPtr = NULL;     //points to first node in a list
+    tailPtr = NULL;     //points to last node in a list
+    size = 0;           //size of the list
 }
-
+//overloaded constructor
 LinkedList::LinkedList(Node* h, Node* t, int s)
 {
-    headPtr = h;
-    tailPtr = t;
-    size = s;
+    headPtr = h;        //points to first node in a list
+    tailPtr = t;        //points to last node in a list
+    size = s;           //size of the list
 }
 
 //destructor
@@ -51,17 +52,17 @@ LinkedList::~LinkedList()
 //setters
 void LinkedList::setHeadPtr(Node* h)
 {
-    headPtr = h;
+    headPtr = h; 
 }
 
 void LinkedList::setTailPtr(Node* t)
 {
-    tailPtr = t;
+    tailPtr = t; 
 }
 
 void LinkedList::setSize(int s)
 {
-    size = s;
+    size = s; 
 }
 
 //getters
@@ -84,6 +85,33 @@ int LinkedList::getSize()
 
 
 //add to list (append, prepend, insert)
+<<<<<<< HEAD
+
+//function name:        insertAtFront
+//function purpose:     insert a new node at the beginning of a list
+void LinkedList::insertAtFront(Restaurants* temp)
+{
+    Node *newNode; //new node to insert at beginning
+
+    newNode = new Node;
+    newNode->resty = temp;
+    newNode->next = NULL; 
+    // If there are no nodes in the list make newNode the first node.
+	if (!headPtr ) 
+	{
+		headPtr = newNode;
+		tailPtr = newNode;
+	}
+	else  // Otherwise, insert newNode at end.
+	{
+		//set the current last node's next pointer to the new node
+		tailPtr->next = newNode;
+		
+		//now the tail is the new node
+		tailPtr = newNode;
+	}
+    cout << "\nSuccessfully added to restaurant list!\n";
+=======
 void LinkedList::addRestaurant(Restaurants* temp)
 {
     Node* newNode;
@@ -102,11 +130,14 @@ void LinkedList::addRestaurant(Restaurants* temp)
         }
         current->next = newNode;
     }
+>>>>>>> 30bfb189493f08ce181346e29640118b53c67ab1
 }
 
+//function name:        insertAtBack
+//function purpose:     insert a new node at the end of a list
 void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
 {
-    Node* newData = temp.getTailPtr();
+    Node* newData = temp.getTailPtr();      //node for the new data getting added to the list
     temp.setTailPtr(newData);
 
     cout << "\nSuccessfully added to restaurant list!\n";
@@ -114,21 +145,28 @@ void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
 
 
 //get from list (back, front, at)
+
+//function name:        front
+//function purpose:     return the first entry of a list
 double LinkedList::front()
 {
-    LinkedList temp;
+    LinkedList temp;    //temp variable to return the front
     return temp.getHeadPtr()->resty->getRating();
 }
 
+//function name:        back
+//function purpose:     return the last entry of a list
 double LinkedList::back()
 {
-    LinkedList temp;
+    LinkedList temp;    //temp variable to return the back
     return temp.getTailPtr()->resty->getRating();
 }
 
+//function name:        at
+//function purpose:     return the entry at a specific point of a list
 double LinkedList::at(int num)
 {
-    LinkedList okay;
+    LinkedList okay;    //tmep variable to return a node
     Node* temp = okay.headPtr;
     Node* temp2;
 
@@ -142,9 +180,12 @@ double LinkedList::at(int num)
 }
 
 //remove from list (pop, remove, etc)
+
+//function name:        pop
+//function purpose:     remove the first node of a list
 LinkedList::Node* LinkedList::pop()
-{
-    LinkedList okay;
+{   
+    LinkedList okay;        //list variable to test if null
 
     if (okay.headPtr == nullptr)
     {
@@ -156,7 +197,7 @@ LinkedList::Node* LinkedList::pop()
         return nullptr;
     }
 
-    LinkedList temp;
+    LinkedList temp;        //temp variable to delete a node
     Node* curr, *nextVariable;
     while(temp.headPtr != nullptr)
     {
@@ -179,6 +220,8 @@ LinkedList::Node* LinkedList::pop()
     return headPtr;
 }
 
+//function name:        removeFrom
+//function purpose:     remove a node from a specific point in the list
 LinkedList::Node* LinkedList::removeFrom(int pos)
 {
     if (headPtr == nullptr)
@@ -187,8 +230,8 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
         return headPtr;
     }
 
-    LinkedList curr;
-    Node* temp1, *temp2;
+    LinkedList curr;            //temp list to find the position wanted and then delete
+    Node* temp1, *temp2;        //nodes to swap to find position
 
     for(int x = 1; (curr.headPtr != nullptr) && (x < pos); x++)
     {
@@ -263,16 +306,18 @@ void LinkedList::deleteRestaurant(const string& name)
 //sorting functions
 
 //this sorting function with no arguments is used to be called in driver without parameters
+//function name:        sort
+//function purpose:     call the recursive sort function
 void LinkedList::sort(){
     //using the tail and head of the list to sort the whole list
     sort(tailPtr, headPtr);
 }
 
 //this sorting function has parameters so it can be called recursively
+//function name:        sort
+//function purpose:     recursively sort the list
 void LinkedList::sort(Node* low, Node* high)
 {
-    LinkedList temp;
-
     cout << "\nSorting the array with the Quick Sort algorithm.\n\n";
 
     if((low != nullptr) && (high != nullptr) && (low != high) && (low != high->next))
@@ -287,12 +332,16 @@ void LinkedList::sort(Node* low, Node* high)
     cout << "\nSuccessfully sorted restaurant list!\n";
 }
 
+//function name:        partition
+//function purpose:     partition the list for sorting purposes
 LinkedList::Node* LinkedList::partition(Node* low, Node* high)
 {
-    double pivot = high->resty->getRating();
+    double pivot = high->resty->getRating();        //variable to assist in sorting (using the high end)
 
-    Node* temp = low->prev;
+    Node* temp = low->prev;                         //variable to assist in sorting (using the low end)
 
+
+    //iterate through list and swap when needed
     for (Node* x = low; x != high; x = x->next)
     {
         if(x->resty->getRating() <= pivot)
@@ -309,13 +358,17 @@ LinkedList::Node* LinkedList::partition(Node* low, Node* high)
     return temp;
 }
 
+//function name:        swap
+//function purpose:     swap 2 variable for sorting purposes
 void LinkedList::swap(Node* a, Node* b){
     Node* temp = a;
     a = b;
     b = temp;
 }
 
-void LinkedList::printList() const {
+//function name:        printList
+//function purpose:     print all nodes of a list
+void LinkedList::printList() const{
 
 	Node* nodePtr = headPtr;//starts the current node at the front
     if (nodePtr == nullptr)
@@ -336,6 +389,9 @@ void LinkedList::printList() const {
 
 
 //compare function
+
+//function name:        compare
+//function purpose:     compares 2 nodes in the list against each other
 void LinkedList::compare(){
     string name1;   //stores name of first restaurant
     string name2;   //stores name of second restaurant
