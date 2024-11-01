@@ -66,8 +66,8 @@ class LinkedList
         Node* getTailPtr();
         int getSize();
         
-
-
+        //public node accessor function
+        Node* findNode(const string&);
 
         //add to list (append, prepend, insert)
         void addRestaurant(Restaurants*);

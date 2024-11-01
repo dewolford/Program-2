@@ -80,6 +80,7 @@ int main(){
                 break;
 
             case 5: 
+                Node* foundnode = linkLst.findNode(nameHolder);
                 //Compare restaurants case
                 linkLst.compare();
                 break;

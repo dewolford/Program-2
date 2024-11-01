@@ -81,8 +81,20 @@ int LinkedList::getSize()
     return size;
 }
 
-
-
+//public node so main function can access
+LinkedList::Node* LinkedList::findNode(const string& name)
+{   Node* current = headPtr;
+    while (current != nullptr)
+    {
+        if (current->resty->getName() == name)
+        {
+            return current;
+        }
+        current = current->next;
+    }
+    
+    return nullptr;
+}
 
 //add to list (append, prepend, insert)
 void LinkedList::addRestaurant(Restaurants* temp)
@@ -232,7 +244,7 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
     }
 
     delete temp2;
-    //cout << "\nSuccessfully removed from restaurant list!\n";
+    cout << "\nSuccessfully removed from restaurant list!\n";
     return headPtr;
 }
 
