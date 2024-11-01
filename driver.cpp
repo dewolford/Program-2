@@ -56,12 +56,7 @@ int main(){
                 break;
 
             case 2: 
-                //delete a restaurant case
-                //for (auto it = restyList.begin(); it != restyList.end(); it++ )
-                //{   if((*it)->getName() == nameHolder)
-                //        restyList.erase(it);
-                //        break;
-                //}
+              
                 cout << "\nWhat is the name of the Restaurant you want to delete? (copy name as shown)";
                 linkLst.printList();
                 cin >> nameHolder;

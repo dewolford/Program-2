@@ -287,7 +287,7 @@ void LinkedList::deleteRestaurant(const string& name)
     Node* current = headPtr;
     while (current->next != nullptr && current->next->resty->getName() != name)
     {
-        current = current->next;
+        current = current->next
     }
     
     //If restaurant was found it will be deleted
