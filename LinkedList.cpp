@@ -34,13 +34,14 @@ LinkedList::~LinkedList()
 	nodePtr = headPtr;
 
 	// While nodePtr is not at the end of the list...
-	while (nodePtr != NULL)
+	while (nodePtr != nullptr)
 	{
 		// Save a pointer to the next node.
 		nextNode = nodePtr->next;
 
 		// Delete the current node.
-		delete nodePtr;
+		delete nodePtr->resty;
+        delete nodePtr;
 
 		// Position nodePtr at the next node.
 		nodePtr = nextNode;
@@ -101,22 +102,6 @@ void LinkedList::addRestaurant(Restaurants* temp)
         }
         current->next = newNode;
     }
-    
-    newNode->next = NULL; 
-    // If there are no nodes in the list make newNode the first node.
-	if (!headPtr ) 
-	{
-		headPtr = newNode;
-		tailPtr = newNode;
-	}
-	else  // Otherwise, insert newNode at end.
-	{
-		//set the current last node's next pointer to the new node
-		tailPtr->next = newNode;
-		
-		//now the tail is the new node
-		tailPtr = newNode;
-	}
 }
 
 void LinkedList::insertAtBack(LinkedList temp)//should be able to remove later
