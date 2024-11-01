@@ -35,13 +35,14 @@ LinkedList::~LinkedList()
 	nodePtr = headPtr;
 
 	// While nodePtr is not at the end of the list...
-	while (nodePtr != NULL)
+	while (nodePtr != nullptr)
 	{
 		// Save a pointer to the next node.
 		nextNode = nodePtr->next;
 
 		// Delete the current node.
-		delete nodePtr;
+		delete nodePtr->resty;
+        delete nodePtr;
 
 		// Position nodePtr at the next node.
 		nodePtr = nextNode;
@@ -84,6 +85,7 @@ int LinkedList::getSize()
 
 
 //add to list (append, prepend, insert)
+<<<<<<< HEAD
 
 //function name:        insertAtFront
 //function purpose:     insert a new node at the beginning of a list
@@ -109,6 +111,26 @@ void LinkedList::insertAtFront(Restaurants* temp)
 		tailPtr = newNode;
 	}
     cout << "\nSuccessfully added to restaurant list!\n";
+=======
+void LinkedList::addRestaurant(Restaurants* temp)
+{
+    Node* newNode;
+
+    newNode = new Node(temp);
+    if (headPtr == nullptr)
+    {
+        headPtr = newNode;
+    }
+    else
+    {
+        Node* current = headPtr;
+        while (current->next != nullptr)
+        {
+            current = current->next;
+        }
+        current->next = newNode;
+    }
+>>>>>>> 30bfb189493f08ce181346e29640118b53c67ab1
 }
 
 //function name:        insertAtBack
