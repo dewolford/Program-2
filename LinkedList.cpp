@@ -258,6 +258,45 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
     return headPtr;
 }
 
+void LinkedList::deleteRestaurant(const string& name)
+{   
+    if ( headPtr == nullptr)
+    {
+        cout << "\nList is empty" << endl;
+        return;
+    }
+
+    //will handle if headPtr needs to be deleted
+    if (headPtr->resty->getName() == name)
+    {
+        Node* temp = headPtr;
+        headPtr = headPtr->next;
+        delete temp->resty;
+        delete temp;
+        cout << "\nRestaurant " << name << " has been deleted." << endl;
+        return;
+    }
+    
+    //Traverse list to the find the node user requested deletion
+    Node* current = headPtr;
+    while (current->next != nullptr && current->next->resty->getName() != name)
+    {
+        current = current->next;
+    }
+    
+    //If restaurant was found it will be deleted
+    if (current->next != nullptr)
+    {
+        Node* temp = current->next;
+        current->next = current->next->next;
+        delete temp->resty;
+        delete temp;
+        cout << "\nRestaurant " << name << " has been deleted." << endl;
+
+    }
+    
+}
+
 //sorting functions
 
 //this sorting function with no arguments is used to be called in driver without parameters
@@ -323,20 +362,23 @@ void LinkedList::swap(Node* a, Node* b){
 
 //function name:        printList
 //function purpose:     print all nodes of a list
-void LinkedList::printList(){
+void LinkedList::printList() const{
 
 	Node* nodePtr = headPtr;//starts the current node at the front
-
-	if(headPtr == NULL)
-		cout << "\nThere are no restaurants in the list.\n";
-	else{
-		while (nodePtr) {
-			cout << nodePtr->resty << endl;
-
-			//Moves to the next node
-			nodePtr = nodePtr->next;
-		}
+    if (nodePtr == nullptr)
+    {
+        cout << "\nNothing to see here, add a restaurant first." << endl;
     }
+    
+	while (nodePtr != nullptr)
+    {
+        cout << "\nName: " << nodePtr->resty->getName();
+        cout << ", Location: " << nodePtr->resty->getLocation();
+        cout << ", Food: " << nodePtr->resty->getFood();
+        cout << ", Rating: " << nodePtr->resty->getRating();
+        nodePtr = nodePtr->next;
+    }
+    
 }
 
 
