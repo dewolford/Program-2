@@ -85,33 +85,6 @@ int LinkedList::getSize()
 
 
 //add to list (append, prepend, insert)
-<<<<<<< HEAD
-
-//function name:        insertAtFront
-//function purpose:     insert a new node at the beginning of a list
-void LinkedList::insertAtFront(Restaurants* temp)
-{
-    Node *newNode; //new node to insert at beginning
-
-    newNode = new Node;
-    newNode->resty = temp;
-    newNode->next = NULL; 
-    // If there are no nodes in the list make newNode the first node.
-	if (!headPtr ) 
-	{
-		headPtr = newNode;
-		tailPtr = newNode;
-	}
-	else  // Otherwise, insert newNode at end.
-	{
-		//set the current last node's next pointer to the new node
-		tailPtr->next = newNode;
-		
-		//now the tail is the new node
-		tailPtr = newNode;
-	}
-    cout << "\nSuccessfully added to restaurant list!\n";
-=======
 void LinkedList::addRestaurant(Restaurants* temp)
 {
     Node* newNode;
@@ -130,7 +103,6 @@ void LinkedList::addRestaurant(Restaurants* temp)
         }
         current->next = newNode;
     }
->>>>>>> 30bfb189493f08ce181346e29640118b53c67ab1
 }
 
 //function name:        insertAtBack
@@ -260,7 +232,7 @@ LinkedList::Node* LinkedList::removeFrom(int pos)
     }
 
     delete temp2;
-    cout << "\nSuccessfully removed from restaurant list!\n";
+    //cout << "\nSuccessfully removed from restaurant list!\n";
     return headPtr;
 }
 
@@ -287,7 +259,7 @@ void LinkedList::deleteRestaurant(const string& name)
     Node* current = headPtr;
     while (current->next != nullptr && current->next->resty->getName() != name)
     {
-        current = current->next
+        current = current->next;
     }
     
     //If restaurant was found it will be deleted
