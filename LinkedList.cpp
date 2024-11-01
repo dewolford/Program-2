@@ -175,7 +175,7 @@ LinkedList::Node* LinkedList::pop()
 
     int sizeTemp;
     sizeTemp = getSize();
-    sizeTemp = sizeTemp--;
+    sizeTemp--;
     setSize(sizeTemp); 
 
     return headPtr;

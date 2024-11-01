@@ -22,16 +22,16 @@ int main(){
     double ratingHolder;                                //holds restaurant rating for constructor
     Restaurants *Rst;
     SmartPtr<string> ptr(new string());
-    *ptr = PHH;
-    double P = stod(PHH);
+    //*ptr = PHH;
+    //double P = stod(PHH);
     list<SmartPtr<Restaurants> > restyList;
-    auto itorator = restyList.begin();
+    //auto itorator = restyList.begin();
     do {
         //prints the main menu
         printMenu();
 
         //takes and validates input 
-        choice = (int)validateInput(choice, 1, 6);
+        choice = (int)validateInput((double)choice, 1, 6);
         switch(choice){
 
             case 1:
@@ -56,12 +56,12 @@ int main(){
 
             case 2: 
                 //delete a restaurant case
-                for (auto it = restyList.begin(); it != restyList.end(); it++ )
-                {   if((*it)->getName() == nameHolder)
-                        restyList.erase(it);
-                        break;
-                }
-                restyList;
+                //for (auto it = restyList.begin(); it != restyList.end(); it++ )
+                //{   if((*it)->getName() == nameHolder)
+                //        restyList.erase(it);
+                //        break;
+                //}
+                //restyList;
                 /*call destructor for restaurant?     is   this   needed? -GABE*/
                 /*call remove list function?*/
 

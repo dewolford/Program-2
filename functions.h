@@ -8,7 +8,7 @@
 
 #include "Restaurants.h"
 #include "LinkedList.h"
-#include "smartPointer.h"
+#include "SmartPointer.h"
 
 
 #include <iostream>
