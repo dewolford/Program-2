@@ -13,9 +13,6 @@
 #include <list>
 
 using namespace std;
-
-
-
 class LinkedList
 {
     public:

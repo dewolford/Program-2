@@ -8,7 +8,7 @@ using namespace std;
 
 //prints the main menu
 void printMenu(){
-    cout << "MAIN MENU (Enter a Number):\n\t(1) Add a Restaurant\n\n\t(2) Delete a Restaurant\n\n\t(3) Display a Restaurant\n\n\t(4) Sort Restaurants\n\n\t(5) Compare Restaurants\n\n\t(6) Quit\n\n";
+    cout << "\nMAIN MENU (Enter a Number):\n\t(1) Add a Restaurant\n\n\t(2) Delete a Restaurant\n\n\t(3) Display a Restaurant\n\n\t(4) Sort Restaurants\n\n\t(5) Compare Restaurants\n\n\t(6) Quit\n\n";
 }
 
 //validates double input

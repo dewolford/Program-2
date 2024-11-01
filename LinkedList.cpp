@@ -464,7 +464,7 @@ void LinkedList::compare(){
                 currentNode = currentNode->next; 
             }
             if (name2 != currentNode->resty->getName()){
-                cout << "\nCould not find restaurant: " << name1 << ". Would you like to try again(1) or quit?(2)\n";
+                cout << "\nCould not find restaurant: " << name2 << ". Would you like to try again(1) or quit?(2)\n";
                 num = validateInput(num, 1,2);
                 if (num == 1){
                     
@@ -488,13 +488,4 @@ void LinkedList::compare(){
             }
         }
     }
-
-
-
-
-
-
 }
-    /*this one should be simple. all it does is take two objects as arguments, takes the 
-    ratings, and prints "this restaurant (rating) is rated higher than that restaurant 
-    (rating)" or "this restaurant and that restaurant are rated equally (rating)"*/

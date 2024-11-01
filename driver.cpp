@@ -1,9 +1,9 @@
 /*
     Title: driver.cpp
 
-      / *----------------------------------------DANI can you add a link to the repository here? thanks------------------------------* /
+    https://github.com/dewolford/Program-2
 
-    Purpose: Runs the main menu case statement
+    Purpose: Runs the main menu in a case statement format
 */
 #include "LinkedList.h"     //includes linked list functions
 #include "SmartPointer.h"   //includes smart pointer functions
@@ -18,8 +18,12 @@ int main(){
     int choice; //contains the users choice for the menu
     int choice2;//contains the users choice for inside the menu
     bool cont = true; //used in the do while loop to determine if they quit or not
+    bool correct = false; //used to determine if the correct name has been found while searching the list
+    bool tryAgain = true; //used to determine if the user wants to try again 
     string nameHolder, locationHolder, typeHolder,PHH;  //holds other restaurant information for constructor
-    double ratingHolder;                                //holds restaurant rating for constructor
+    double ratingHolder;   
+    LinkedList::Node* currentNode = linkLst.getHeadPtr();      //holds restaurant rating for constructor
+    LinkedList::Node* displayedRestaurant;
     Restaurants *Rst;
     SmartPtr<string> ptr(new string());
     //*ptr = PHH;
@@ -49,14 +53,16 @@ int main(){
                 validateInput(ratingHolder, 0, 5);
                 
                 Rst = new Restaurants(nameHolder, locationHolder, typeHolder, ratingHolder);
+
                 restyList.push_back(SmartPtr<Restaurants>(Rst));
-                 /*idk if this is right please double check*/
-                /*call append list funtion? with constructed restaurant*/    
+                
+                //calls append list funtion with constructed restaurant
                 linkLst.addRestaurant(Rst);
+                cout << "\nSucessfully added " << nameHolder <<" to list!\n\n";
                 break;
 
             case 2: 
-              
+                //deletes a restaurant
                 cout << "\nWhat is the name of the Restaurant you want to delete? (copy name as shown)";
                 linkLst.printList();
                 getline(cin, nameHolder);
@@ -64,13 +70,42 @@ int main(){
                 break;
 
             case 3: 
-                //display a restaurant case
+                //display a restaurant 
                 cout << "\nDisplay one restaurant(1) or all restaurants(2)?";
+                cin.clear(); //clears buffer before name is typed
                 validateInput(choice2, 1, 2);
                 if (choice2 == 1){
-                    /*call << Restaurant function*/
+                    do{
+
+                        cout << "\nWhat is the name of the restaurant you want to display?\n";
+                        cin.clear();
+                        //cin >> nameHolder;
+                        getline(cin, nameHolder);
+                        for (int i = 0;i< linkLst.getSize(); i++){
+                            if (nameHolder == currentNode->resty->getName()){
+                                displayedRestaurant = currentNode;
+                                break;
+                            }
+                            //Moves to the next node
+                            currentNode = currentNode->next; 
+                        }
+                        //if (nameHolder != currentNode->resty->getName()){
+                            cout << "\nCould not find restaurant: " << nameHolder << ". Would you like to try again(1) or quit?(2)\n";
+                            choice2 = validateInput(choice2, 1,2);
+                            if (choice2 == 1){
+                                
+                            } else{
+                                tryAgain = false;
+                                correct = true;
+                            }
+                       // }
+                    } while  (!correct);
+                    if (tryAgain){
+                        //prints restaurant using its << operator
+                        cout << currentNode->resty;
+                    }
                 } else {
-                    //list.displaylist();/*call << Restaurant function for all in list (sorry), this can be done in a for statement if need be*/
+                    linkLst.printList();
                 }
                 break;
 
@@ -80,8 +115,9 @@ int main(){
                 break;
 
             case 5: 
-                LinkedList::Node* foundnode = linkLst.findNode(nameHolder);
+                //LinkedList::Node* foundnode = linkLst.findNode(nameHolder);
                 //Compare restaurants case
+                cin.ignore(10000, '\n'); //clears buffer before name is typed
                 linkLst.compare();
                 break;
 
