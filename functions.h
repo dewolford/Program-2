@@ -1,5 +1,5 @@
 /*
-    Title: functions.cpp
+    Title: functions.h
     Purpose: contains all other functions
 */
 

@@ -1,5 +1,5 @@
 /*
-    Title: classes.cpp
+    Title: LinkedList.cpp
     Purpose: hold all functions necessary for the classes made in classes.h
 */
 #include "LinkedList.h"

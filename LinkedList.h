@@ -1,6 +1,6 @@
 /*
-    Title: classes.h
-    Purpose: store our classes and definitions
+    Title: Linkedlist.h
+    Purpose: store our linked list class and definitions
 */
 
 #ifndef LINKEDLIST_H

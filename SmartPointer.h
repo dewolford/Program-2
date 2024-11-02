@@ -1,5 +1,5 @@
 /*
-    Title: SmartPointer.cpp
+    Title: SmartPointer.h
     Purpose: contains the functions for the smart pointer
 */
 

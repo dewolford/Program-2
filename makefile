@@ -1,0 +1,2 @@
+hellomake: functions.h functions.cpp restaurants.h restaurants.cpp SmartPointer.h driver.cpp Linkedlist.h LinkedList.cpp
+g++ -o hellomake functions.h functions.cpp restaurants.h restaurants.cpp SmartPointer.h driver.cpp Linkedlist.h LinkedList.cpp
