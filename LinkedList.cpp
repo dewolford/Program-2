@@ -45,7 +45,7 @@ LinkedList::~LinkedList()
         delete nodePtr;
 
 		// Position nodePtr at the next node.
-		nodePtr = nextNode;
+		nodePtr = nextNode = nullptr;
 	}
 }
 
@@ -62,21 +62,15 @@ void LinkedList::setTailPtr(Node* t)
 
 void LinkedList::setSize(int s)
 {
-    LinkedList okay;                //list variable to be able to set headptr
-    Node* temp = okay.headPtr;      //set temp to first node in the list
-    Node* temp2;                    //temp 2 to iterate through the list
-    int counter = 0;                //counter to get the length
-
+    Node* temp = headPtr;      //set temp to first node in the list
+    int counter = 0;           //counter to get the length
 
     //iterate through list and add to counter each time
-    for(int x = 1; temp2 != nullptr; x++)
+    while(temp != nullptr)
     {
-        temp = okay.headPtr->next;
-        temp2 = temp->next;
-        counter++;
+        ++size;
+        temp = temp->next;
     }
-
-    size = counter;
 }
 
 //getters
@@ -133,15 +127,14 @@ LinkedList::Node* LinkedList::findNode(const string& name)
 //function purpose:     insert a new node at the beginning of a list
 void LinkedList::addRestaurant(Restaurants* temp)
 {
-    Node *newNode; //new node to insert at beginning
+    Node* newNode = new Node(temp); //new node to insert at beginning
 
-    newNode->restaurant = temp;
-    newNode->next = NULL; 
+    
+    newNode->next = nullptr; 
     // If there are no nodes in the list make newNode the first node.
-	if (!headPtr ) 
+	if (!headPtr) 
 	{
-		headPtr = newNode;
-		tailPtr = newNode;
+		headPtr = tailPtr = newNode;
 	}
 	else  // Otherwise, insert newNode at end.
 	{
@@ -395,6 +388,7 @@ void LinkedList::printList() const{
     if (nodePtr == nullptr)
     {
         cout << "\nNothing to see here, add a restaurant first." << endl;
+        return;
     }
     
 	while (nodePtr != nullptr)
@@ -403,8 +397,8 @@ void LinkedList::printList() const{
         cout << ", Location: " << nodePtr->restaurant->getLocation();
         cout << ", Food: " << nodePtr->restaurant->getFood();
         cout << ", Rating: " << nodePtr->restaurant->getRating();
-        
-        nodePtr = nodePtr->next;
+        cout << endl;
+        nodePtr = nodePtr->next; // moves to the next node
     }
     
 }
