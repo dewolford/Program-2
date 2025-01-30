@@ -1,7 +1,48 @@
-#include "LinkedList.h"
-using namespace std;
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
 
-// Destructor
+#include "SmartPointer.h"
+#include <iostream>
+using namespace std;
+template <typename T>
+class LinkedList {
+public:
+    struct Node {
+        SmartPointer<T> data;
+        Node* next;
+
+        Node(T* value) : data(value), next(nullptr) {}
+    };
+
+private:
+    Node* headPtr;
+    Node* tailPtr;
+    int size;
+
+public:
+    LinkedList() : headPtr(nullptr), tailPtr(nullptr), size(0) {}
+    ~LinkedList();
+
+    void append(T* data);
+    void deleteRestaurant(const std::string& name);
+    void sort();  // Sort the list in descending order
+
+private:
+    void sort(Node* low, Node* high);
+    Node* partition(Node* low, Node* high);
+    void swap(Node* a, Node* b);
+
+    friend std::ostream& operator<<(std::ostream& out, const LinkedList& list) {
+        Node* current = list.headPtr;
+        while (current) {
+            out << *current->data << "\n";
+            current = current->next;
+        }
+        return out;
+    }
+};
+
+// Destructor to free memory
 template <typename T>
 LinkedList<T>::~LinkedList() {
     Node* current = headPtr;
@@ -27,7 +68,7 @@ void LinkedList<T>::append(T* data) {
 
 // Delete a restaurant by name
 template <typename T>
-void LinkedList<T>::deleteRestaurant(const string& name) {
+void LinkedList<T>::deleteRestaurant(const std::string& name) {
     Node* current = headPtr;
     Node* previous = nullptr;
     
@@ -36,45 +77,49 @@ void LinkedList<T>::deleteRestaurant(const string& name) {
             if (previous) previous->next = current->next;
             else headPtr = current->next;
             delete current;
-            cout << "Restaurant " << name << " deleted.\n";
+            std::cout << "Restaurant " << name << " deleted.\n";
             return;
         }
         previous = current;
         current = current->next;
     }
-    cout << "Restaurant " << name << " not found.\n";
+    std::cout << "Restaurant " << name << " not found.\n";
 }
 
-// Sort function called without parameters for external use
+// Sort function called externally for descending order
 template <typename T>
 void LinkedList<T>::sort() {
-    cout << "\nSorting the restaurant list with the Quick Sort algorithm.\n\n";
+    std::cout << "\nSorting the restaurant list with Quick Sort (descending).\n\n";
     if (headPtr != nullptr && tailPtr != nullptr) {
-        sort(headPtr, tailPtr);  // Calls recursive sort function with the head and tail pointers
+        sort(headPtr, tailPtr);  // Calls recursive sort function
     }
-    cout << "\nSuccessfully sorted restaurant list!\n";
+    std::cout << "\nSuccessfully sorted restaurant list!\n";
 }
 
-// Recursive sort function for internal use with low and high pointers
+// Recursive sort function for descending order
 template <typename T>
 void LinkedList<T>::sort(Node* low, Node* high) {
     if (low != nullptr && high != nullptr && low != high && low != high->next) {
         Node* pivot = partition(low, high);
-        sort(low, pivot);             // Recursively sort the left part of the list
-        sort(pivot->next, high);      // Recursively sort the right part of the list
+        if (pivot != nullptr && pivot != low) {
+            sort(low, pivot);  // Sort left side
+        }
+        if (pivot != nullptr && pivot->next != nullptr) {
+            sort(pivot->next, high);  // Sort right side
+        }
     }
 }
 
-// Partition function for sorting purposes
+// Partition function for sorting, with descending order logic
 template <typename T>
 typename LinkedList<T>::Node* LinkedList<T>::partition(Node* low, Node* high) {
-    double pivot = high->data->getRating();  // Choose the last element's rating as the pivot
+    double pivotValue = high->data->getRating();  // Choose the high node's rating as the pivot
     Node* i = low;
 
     for (Node* j = low; j != high; j = j->next) {
-        if (j->data->getRating() >= pivot) {  // Sort in descending order by rating
+        if (j->data->getRating() >= pivotValue) {  // Descending order
             if (i != j) {
-                swap(i, j);                   // Swap the data in the nodes
+                swap(i, j);  // Swap the data within nodes, not the nodes themselves
             }
             i = i->next;
         }
@@ -90,3 +135,5 @@ void LinkedList<T>::swap(Node* a, Node* b) {
     a->data = b->data;
     b->data = temp;
 }
+
+#endif
